@@ -27,7 +27,7 @@
 %------------------------------------------------------------------------------
 \title{Deliverable \#1 Template : Software Requirement Specification (SRS)}
 \author{SE 3A04: Software Design II -- Large System Design}
-\date{}
+\date{\today}
                             
 %------------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@
 
 \maketitle	
 \noindent{\bf Tutorial Number:} T01\\
-{\bf Group Number:} Gx \\
+{\bf Group Number: G3} Gx \\
 {\bf Group Members:} 
 \begin{itemize}
 	\item Group Member Name (as listed in Avenue)
@@ -59,30 +59,39 @@
 \section{Introduction}
 \label{sec:introduction}
 % Begin Section
-
-\begin{itemize}
-	\item Provide an overview of the document/SRS.
-\end{itemize}
-
+This SRS will describe the software requiremnets for GeoLens, a community-driven application for identifying
+locations based on images, descriptitons and discussions. This document outlines the system's overall purpose, the context for building the application,
+functional and non-functional requirements and user iteraction.
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-\begin{itemize}
-	\item Specify the purpose of the SRS.
-	\item Specify the intended audience for the SRS.
-\end{itemize}
+This document serves as a guideline for developers, designers, QA engineers, project managers and other stakeholders, ensuring a clear understanding of the system, including it's objectives, users, expected behavior, and technical constraints.
+As the project progresses and changes, the document will provide a baseline from which these changes can be compared. This SRS may also aid in risk identification early in the project lifecycle by outlining dependencies and constraints, allowing managers to prevent risks.
 % End SubSection
 
 \subsection{Scope}
 \label{sub:scope}
 % Begin SubSection
-\begin{itemize}
-	\item Identify the software product(s) to be produced, and name each (e.g., Host DBMS, Report Generator, etc.)
-	\item Explain what the software product(s) will do (and, if necessary, also state what they will not do).
-	\item Describe the application of the software being specified, including relevant benefits, objectives, and goals.
-%	\item Be consistent with similar statements in higher-level specifications (e.g., the system requirements specification), if they exist
-\end{itemize}
+GeoLens is a community and AI driven application designed to identify locations from images. It consists of several individual software products described below.\\
+
+The \textbf{Forum} UI is the primary interface where users interact with GeoLens. It allows users to upload images of locations for identification, view responses, and
+engage with the community. If the forum UI can provide ease of use and an interactive experience it will encourage community engagement and bring traffic to the
+application. The interface facilitates discussions, displays aggregated predictions, and contains gamification elements such as leaderboards. 
+It does not perform image analysis or identification itself but serves as the user’s gateway to the platform.\\
+
+The \textbf{Orchestrator} is responsible for handling submitted images, delegating tasks to experts (AI, geography experts, and community aggregators),
+and returning the final result to users. It preprocesses images to optimize identification accuracy and ensures smooth communication between different
+system components. The back end does not analyze images directly but functions as the orchestration layer that efficiently processes requests.\\
+
+The \textbf{Host DBMS} stores user account information, historical user interactions, reputation scores, previously identified locations and leaderboards. It ensures that the system retains valuable data,
+in a structured manner that is efficiently accessible by other system components. The database should be highly secure, as it contains sensitive user information. The database does not process images or make
+identifications but acts as the central location for all platform data.
+
+Identify the software product(s) to be produced, and name each (e.g., Host DBMS, Report Generator, etc.)
+Explain what the software product(s) will do (and, if necessary, also state what they will not do).
+Describe the application of the software being specified, including relevant benefits, objectives, and goals.
+Be consistent with similar statements in higher-level specifications (e.g., the system requirements specification), if they exist
 % End SubSection
 
 \subsection{Definitions, Acronyms, and Abbreviations}
