@@ -173,41 +173,84 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \subsection{User Characteristics}
 \label{sub:user_characteristics}
 % Begin SubSection
+The app is meant to be a user-friendly app and as a result has the following expected qualifications of its users:\\ \\
+1. Education Level: Basic Literacy and Geographical knowledge
 \begin{itemize}
-	\item Describe those general characteristics of the intended users of the product including educational level, experience, and technical expertise 
-	\item Since there will be many users, you may wish to divide into different user types or personas
-%	\item Do not state specific requirements, but rather provide the reasons why certain specific requirements are later specified
+	\item A person with basic literacy skills of reading and writing should be able to utilize
+		this app without any difficulties.
+	\item A person with basic geographical knowledge of the divison of the world into continents, countries, and regions
+		should be able to utilize this app without any difficulties.
 \end{itemize}
+2. Experience: Any
+\begin{itemize}
+	\item Since the app is meant to be user-friendly, someone who is using the app for the very first time
+		should be able to do so without any major problems.
+\end{itemize}
+3. Technical Expertise: Basic knowledge of smartphone usage
+\begin{itemize}
+	\item A person having basic experience with the usage of a smartphone should be able to easily use the app.
+\end{itemize}
+
 % End SubSection
 
 \subsection{Constraints}
-\label{sub:constraints}
+\label{sub:constraints} \medskip
 % Begin SubSection
-\begin{itemize}
-	\item Provide a general description of any constraints that will limit the developer's options
-\end{itemize}
+1. \textbf{Budget: }The budget allocated to the project will have a great affect on which technologies may be used
+in the development of the app, as well as limiting the external integrations that can be used. The indicated
+budget for the project is \$0.\medskip \\
+2. \textbf{Time: }The time allotted for the project with have a significant affect on the feasible scope of the
+project. Consequently, this limits the number and quality of features that can be integrated into the app.
 % End SubSection
 
 \subsection{Assumptions and Dependencies}
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
-\begin{itemize}
-	\item List any assumptions you made in interpreting what the software being developed is aiming to achieve
-	\item List any other assumptions you made that, if it fails to hold, could require you to change the requirements
+1. Assume that pictures of locations will be able to be located to at minimum country level accuracy.\\
+2. Assume that users encounter pictures of unknown origin (no information about where it was taken).\\
+3. Assume that users wish to know where pictures of unknown origin were taken.\\
+4. Assume that the processing of unauthorized photos of public spaces are legal in all regions in which the app operates. \medskip \\
+Other assumptions that, if it fails to hold, could require a change to the requirements:\\
+1. A recent (released within 3 years) version of the Andriod operating system will be available on the device.\\
+2. The device will have internet access if the user wishes to use the app.\\
+3. The app will have access to an on-device photo library if the user wishes to upload a photo.\\
+4. Assume all API dependencies are fully functional during the operation of the product.
+%\begin{itemize}
+%	\item List any assumptions you made in interpreting what the software being developed is aiming to achieve
+%	\item List any other assumptions you made that, if it fails to hold, could require you to change the requirements
 	%\item List each of the factors that affect the requirements stated in the SRS
 	%\item These factors are not design constraints on the software but are, rather, any changes to them that can affect the requirements in the SRS
-	\begin{itemize}
-		\item \textbf{Example}: An assumption may be that a specific operating system will be available on the hardware designated for the software product. If, in fact, the operating system is not available, the SRS would then have to change accordingly.
-	\end{itemize}
-\end{itemize}
+%	\begin{itemize}
+%		\item \textbf{Example}: An assumption may be that a specific operating system will be available on the hardware designated for the software product. If, in fact, the operating system is not available, the SRS would then have to change accordingly.
+%	\end{itemize}
+%\end{itemize}
 % End SubSection
 
 \subsection{Apportioning of Requirements}
 \label{sub:apportioning_of_requirements}
 % Begin SubSection
+1. Further language capabilities
 \begin{itemize}
-	\item Identify requirements that may be delayed until future versions of the system
+	\item The software will be developed only in English for the first version
+		of the system.
 \end{itemize}
+2. User rating/rank based on guess accuracy
+\begin{itemize}
+	\item Users will be able to guess on other user's posts as to where
+		they think it is (This does \textbf{not} affect the expert determination
+		and is simply to add game-like mechanics). In a future version of the software,
+		each user will have a rating/rank
+		based on how close their guesses are to the expert determination.
+\end{itemize}
+3. No question limit for paid tier
+\begin{itemize}
+	\item In a future version of the software, users would be able to
+		purchase a paid premium tier to be able to ask as many questions
+		per day as they'd like.
+\end{itemize}
+%\begin{itemize}
+%	\item Identify requirements that may be delayed until future versions of the system
+%\end{itemize}
 % End SubSection
 
 % End Section
