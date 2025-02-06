@@ -139,18 +139,20 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 
 \subsection{Product Perspective}
 \label{sub:product_perspective}
-% Begin SubSection
-\begin{itemize}
-	% \item Put the product into perspective with other related products, i.e., context
 
-	\noindent {AppName is a mobile game guessing app developed for the Android platform. A similar product is GeoGuessr, which allows users to guess the location of randomly given locations from a Google Street View. However, this product will require a user to submit a picture of a location they wish to identify. The application will consult the 3 experts: an algorithm that aggregates responses from users around the world, and AI model, and Rainbolt. Each expert will return a confidence level and if the confidence level meets a predefined threshold of 70\%, then that expert's response will be return in the same order as above. The product also consists of a unique feature, which is a game that has competition modes, where players can play against each other individually or as a group. Additionally, the product will allow users to create and modify profiles that will be used in the app. This means a login and signup feature will be required. The product will compare a photo taken by
-	}
-	\noindent {}
+    \noindent {GeoLens is a mobile game guessing app developed for the Android platform. A similar product is GeoGuessr, which allows users to guess the location of randomly given locations from a Google Street View. However, this product requires a user to submit a picture of a location they wish to identify. The application will consult three AI specialized experts: a region-specific generative AI, a lightweight AI called GeoKnowr which is based off of GeoGuessr, and a landmark-specific AI. Each expert will return a confidence level and if the confidence level meets a predefined threshold of 70\%, then that expert's response will be return in the same order as above.} \\
 
-	\item If the product is independent and totally self-contained, it should be stated here
-	\item If the SRS defines a product that is a component of a larger system, then this subsection should relate the requirements of that larger system to the functionality of the software being developed. Identify interfaces between that larger system and the software to be developed.
-	\item A block diagram showing the major components of the larger system, interconnections, and external interfaces can be helpful
-\end{itemize}
+    \noindent {In addition to the AI-driven location identification, GeoLens has a unique gameplay feature with competition modes, where players can play against each other individually, with real-time score tracking and leaderboards. Additionally, the product will allow users to create and modify profiles that will be used in the app. This means that a log-in and sign-up feature will be required.} \\
+
+    \noindent {The system architecture consists of multiple layers. Firstly is the data layer for storing user profiles, previously submitted images, as well as game history. Secondly is the dispatcher wrapper which is responsible for managing image submission, managing accounts, and engaging in competition mode. Lastly, the external API layer is what the image identification module calls on to identify photos, where it calls upon a confidence evaluator, which aggregates responses from multiple AI models to determine the most accurate result.}
+
+	% \begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{system_diagram.png}
+		% \caption{Enter Caption}
+		\label{fig:enter-label}
+	% \end{figure}
+    
 % End SubSection
 
 \subsection{Product Functions}
@@ -166,7 +168,7 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 	\item Textual or graphical methods can be used to show the different functions and their relationships
 	\begin{itemize}
 		\item Such a diagram is not intended to show a design of a product, but simply shows the logical relationships among variables
-	\end{itemize} 
+	\end{itemize}
 \end{itemize}
 % End SubSection
 
