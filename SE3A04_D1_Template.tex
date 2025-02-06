@@ -77,29 +77,46 @@ GeoLens is a community and AI driven application designed to identify locations 
 
 The \textbf{Forum} UI is the primary interface where users interact with GeoLens. It allows users to upload images of locations for identification, view responses, and
 engage with the community. If the forum UI can provide ease of use and an interactive experience it will encourage community engagement and bring traffic to the
-application. The interface facilitates discussions, displays aggregated predictions, and contains gamification elements such as leaderboards. 
-It does not perform image analysis or identification itself but serves as the user’s gateway to the platform.\\
+application. The interface facilitates discussions, displays aggregated predictions, and contains gamification elements such as leaderboards. The forum UI should be accessible
+to all users, intuitive to use and respond to user requests within 100 ms. It does not perform image analysis or identification itself but serves as the user’s gateway to the platform.\\
 
-The \textbf{Orchestrator} is responsible for handling submitted images, delegating tasks to experts (AI, geography experts, and community aggregators),
-and returning the final result to users. It preprocesses images to optimize identification accuracy and ensures smooth communication between different
-system components. The back end does not analyze images directly but functions as the orchestration layer that efficiently processes requests.\\
+The \textbf{Orchestrator} is responsible for handling submitted images, delegating tasks to experts,
+and returning the final result to users. The Orchestrator should coordinate system components concurrently, managing task distribution, monitoring progress, and aggregating responses to ensure quick and accurate results. It handles task prioritization, load balancing, and error recovery while maintaining seamless interactions between users and experts.
+The back end does not analyze images directly but functions as the between layer that processes requests and returns items to the forum.\\
 
 The \textbf{Host DBMS} stores user account information, historical user interactions, reputation scores, previously identified locations and leaderboards. It ensures that the system retains valuable data,
-in a structured manner that is efficiently accessible by other system components. The database should be highly secure, as it contains sensitive user information. The database does not process images or make
-identifications but acts as the central location for all platform data.
+in a structured way that is efficiently accessible by other system components. The database should be highly secure, as it contains sensitive user information. The database does not process images or make
+identifications but acts as the central location for all platform data. \\
 
-Identify the software product(s) to be produced, and name each (e.g., Host DBMS, Report Generator, etc.)
-Explain what the software product(s) will do (and, if necessary, also state what they will not do).
-Describe the application of the software being specified, including relevant benefits, objectives, and goals.
-Be consistent with similar statements in higher-level specifications (e.g., the system requirements specification), if they exist
-% End SubSection
+The three \textbf{Experts} are as follows:
+\begin{enumerate}
+    \item \textbf{GeoKnowr AI}
+    \begin{itemize}
+        \item Pre-trained image processing model
+        \item Predicts coordinates where an image was taken
+    \end{itemize}
+    \item \textbf{Landmark Recognition}
+    \begin{itemize}
+        \item Google images API
+        \item Search by image to locate a popular landmark
+    \end{itemize}
+	\item \textbf{Region Specific AI}
+	\begin{itemize}
+        \item Uses a specialized AI model trained for a specific region
+        \item Enhances accuracy for areas with distinct visual features
+    \end{itemize}
+\end{enumerate}
+
+The primary goal of these experts is to work cohesively to provide an accurate prediction with little delay. GeoKnowr AI aims to deliver an initial estimate
+of where an image was taken by assigning coordinates. Then the region specific AI can further refine this prediction by applying localized knowledge. If a landmark is 
+present in the image, the Landmark Recognition software should pin point it's location.
 
 \subsection{Definitions, Acronyms, and Abbreviations}
 \label{sub:definitions_acronyms_and_abbreviations}
 % Begin SubSection
 \begin{itemize}
-	\item Provide the definitions of all terms, acronyms, and abbreviations required to properly interpret the SRS.
-	\item This should be in alphabetical order.
+	\item \textbf{GeoLens:} the system being specified
+	\item \textbf{AI:} Aritficial Intelligence
 \end{itemize}
 % End SubSection
 
@@ -117,12 +134,13 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-\begin{itemize}
-	\item Describe what the remainder of the document/SRS contains.\\
-	(e.g. "Section 2 discusses...Section 3...")
-%	\item Explain how the SRS is organized
-\end{itemize}
-% End SubSection
+Section 2 aims to put the value of GeoLens into perspective, relating and contrasting it to other similar products that currently exist.
+It should also provide a summary of the primary functions of the application and a description of the expected users. This should provide readers with a general understanding
+of the system, and how users are expected to intereact with it. Finally, constraints and assumptions are listed to clarify the scope of the application and the context in which it operated.\\\\
+Section 3 presents a use case digram outlining the main functionality and interactions with stakeholders.\\\\
+Section 4 is a detailed overview of the functional requirements, discussing what the system will do. These requirements will be organized in terms of 
+business events, viewpoints and scenarios. This provides a structured understanding of the system in various contexts. \\\\
+Finally, section 5 describes the Non-Functional Requirements, focusing on how the system aims to be a valuable service. This section provides a rationale for each requirement, explaining their necessity and benefits.
 
 % End Section
 
@@ -130,18 +148,24 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{sec:overall_description}
 % Begin Section
 
-\begin{itemize}
-	\item This section should describe the general factors that affect the product and its requirements. 
-	\item It does not state specific requirements.
-	\item It provides a \emph{background} for those requirements and makes them easier to understand.
-\end{itemize}
+% \begin{itemize}
+% 	\item This section should describe the general factors that affect the product and its requirements. 
+% 	\item It does not state specific requirements.
+% 	\item It provides a \emph{background} for those requirements and makes them easier to understand.
+% \end{itemize}
 
 
 \subsection{Product Perspective}
 \label{sub:product_perspective}
 % Begin SubSection
 \begin{itemize}
-	\item Put the product into perspective with other related products, i.e., context
+	% \item Put the product into perspective with other related products, i.e., context
+
+	%This was bugging out my compiler
+	%\noindent {AppName is a mobile game guessing app developed for the Android platform. A similar product is GeoGuessr, which allows users to guess the location of randomly given locations from a Google Street View. However, this product will require a user to submit a picture of a location they wish to identify. The application will consult the 3 experts: an algorithm that aggregates responses from users around the world, and AI model, and Rainbolt. Each expert will return a confidence level and if the confidence level meets a predefined threshold of 70\%, then that expert's response will be return in the same order as above. The product also consists of a unique feature, which is a game that has competition modes, where players can play against each other individually or as a group. Additionally, the product will allow users to create and modify profiles that will be used in the app. This means a login and signup feature will be required. The product will compare a photo taken by
+	%}
+	%\noindent {}
+
 	\item If the product is independent and totally self-contained, it should be stated here
 	\item If the SRS defines a product that is a component of a larger system, then this subsection should relate the requirements of that larger system to the functionality of the software being developed. Identify interfaces between that larger system and the software to be developed.
 	\item A block diagram showing the major components of the larger system, interconnections, and external interfaces can be helpful
@@ -168,41 +192,84 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \subsection{User Characteristics}
 \label{sub:user_characteristics}
 % Begin SubSection
+The app is meant to be a user-friendly app and as a result has the following expected qualifications of its users:\\ \\
+1. Education Level: Basic Literacy and Geographical knowledge
 \begin{itemize}
-	\item Describe those general characteristics of the intended users of the product including educational level, experience, and technical expertise 
-	\item Since there will be many users, you may wish to divide into different user types or personas
-%	\item Do not state specific requirements, but rather provide the reasons why certain specific requirements are later specified
+	\item A person with basic literacy skills of reading and writing should be able to utilize
+		this app without any difficulties.
+	\item A person with basic geographical knowledge of the divison of the world into continents, countries, and regions
+		should be able to utilize this app without any difficulties.
 \end{itemize}
+2. Experience: Any
+\begin{itemize}
+	\item Since the app is meant to be user-friendly, someone who is using the app for the very first time
+		should be able to do so without any major problems.
+\end{itemize}
+3. Technical Expertise: Basic knowledge of smartphone usage
+\begin{itemize}
+	\item A person having basic experience with the usage of a smartphone should be able to easily use the app.
+\end{itemize}
+
 % End SubSection
 
 \subsection{Constraints}
-\label{sub:constraints}
+\label{sub:constraints} \medskip
 % Begin SubSection
-\begin{itemize}
-	\item Provide a general description of any constraints that will limit the developer's options
-\end{itemize}
+1. \textbf{Budget: }The budget allocated to the project will have a great affect on which technologies may be used
+in the development of the app, as well as limiting the external integrations that can be used. The indicated
+budget for the project is \$0.\medskip \\
+2. \textbf{Time: }The time allotted for the project with have a significant affect on the feasible scope of the
+project. Consequently, this limits the number and quality of features that can be integrated into the app.
 % End SubSection
 
 \subsection{Assumptions and Dependencies}
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
-\begin{itemize}
-	\item List any assumptions you made in interpreting what the software being developed is aiming to achieve
-	\item List any other assumptions you made that, if it fails to hold, could require you to change the requirements
+1. Assume that pictures of locations will be able to be located to at minimum country level accuracy.\\
+2. Assume that users encounter pictures of unknown origin (no information about where it was taken).\\
+3. Assume that users wish to know where pictures of unknown origin were taken.\\
+4. Assume that the processing of unauthorized photos of public spaces are legal in all regions in which the app operates. \medskip \\
+Other assumptions that, if it fails to hold, could require a change to the requirements:\\
+1. A recent (released within 3 years) version of the Andriod operating system will be available on the device.\\
+2. The device will have internet access if the user wishes to use the app.\\
+3. The app will have access to an on-device photo library if the user wishes to upload a photo.\\
+4. Assume all API dependencies are fully functional during the operation of the product.
+%\begin{itemize}
+%	\item List any assumptions you made in interpreting what the software being developed is aiming to achieve
+%	\item List any other assumptions you made that, if it fails to hold, could require you to change the requirements
 	%\item List each of the factors that affect the requirements stated in the SRS
 	%\item These factors are not design constraints on the software but are, rather, any changes to them that can affect the requirements in the SRS
-	\begin{itemize}
-		\item \textbf{Example}: An assumption may be that a specific operating system will be available on the hardware designated for the software product. If, in fact, the operating system is not available, the SRS would then have to change accordingly.
-	\end{itemize}
-\end{itemize}
+%	\begin{itemize}
+%		\item \textbf{Example}: An assumption may be that a specific operating system will be available on the hardware designated for the software product. If, in fact, the operating system is not available, the SRS would then have to change accordingly.
+%	\end{itemize}
+%\end{itemize}
 % End SubSection
 
 \subsection{Apportioning of Requirements}
 \label{sub:apportioning_of_requirements}
 % Begin SubSection
+1. Further language capabilities
 \begin{itemize}
-	\item Identify requirements that may be delayed until future versions of the system
+	\item The software will be developed only in English for the first version
+		of the system.
 \end{itemize}
+2. User rating/rank based on guess accuracy
+\begin{itemize}
+	\item Users will be able to guess on other user's posts as to where
+		they think it is (This does \textbf{not} affect the expert determination
+		and is simply to add game-like mechanics). In a future version of the software,
+		each user will have a rating/rank
+		based on how close their guesses are to the expert determination.
+\end{itemize}
+3. No question limit for paid tier
+\begin{itemize}
+	\item In a future version of the software, users would be able to
+		purchase a paid premium tier to be able to ask as many questions
+		per day as they'd like.
+\end{itemize}
+%\begin{itemize}
+%	\item Identify requirements that may be delayed until future versions of the system
+%\end{itemize}
 % End SubSection
 
 % End Section
