@@ -77,29 +77,46 @@ GeoLens is a community and AI driven application designed to identify locations 
 
 The \textbf{Forum} UI is the primary interface where users interact with GeoLens. It allows users to upload images of locations for identification, view responses, and
 engage with the community. If the forum UI can provide ease of use and an interactive experience it will encourage community engagement and bring traffic to the
-application. The interface facilitates discussions, displays aggregated predictions, and contains gamification elements such as leaderboards. 
-It does not perform image analysis or identification itself but serves as the user’s gateway to the platform.\\
+application. The interface facilitates discussions, displays aggregated predictions, and contains gamification elements such as leaderboards. The forum UI should be accessible
+to all users, intuitive to use and respond to user requests within 100 ms. It does not perform image analysis or identification itself but serves as the user’s gateway to the platform.\\
 
-The \textbf{Orchestrator} is responsible for handling submitted images, delegating tasks to experts (AI, geography experts, and community aggregators),
-and returning the final result to users. It preprocesses images to optimize identification accuracy and ensures smooth communication between different
-system components. The back end does not analyze images directly but functions as the orchestration layer that efficiently processes requests.\\
+The \textbf{Orchestrator} is responsible for handling submitted images, delegating tasks to experts,
+and returning the final result to users. The Orchestrator should coordinate system components concurrently, managing task distribution, monitoring progress, and aggregating responses to ensure quick and accurate results. It handles task prioritization, load balancing, and error recovery while maintaining seamless interactions between users and experts.
+The back end does not analyze images directly but functions as the between layer that processes requests and returns items to the forum.\\
 
 The \textbf{Host DBMS} stores user account information, historical user interactions, reputation scores, previously identified locations and leaderboards. It ensures that the system retains valuable data,
-in a structured manner that is efficiently accessible by other system components. The database should be highly secure, as it contains sensitive user information. The database does not process images or make
-identifications but acts as the central location for all platform data.
+in a structured way that is efficiently accessible by other system components. The database should be highly secure, as it contains sensitive user information. The database does not process images or make
+identifications but acts as the central location for all platform data. \\
 
-Identify the software product(s) to be produced, and name each (e.g., Host DBMS, Report Generator, etc.)
-Explain what the software product(s) will do (and, if necessary, also state what they will not do).
-Describe the application of the software being specified, including relevant benefits, objectives, and goals.
-Be consistent with similar statements in higher-level specifications (e.g., the system requirements specification), if they exist
-% End SubSection
+The three \textbf{Experts} are as follows:
+\begin{enumerate}
+    \item \textbf{GeoKnowr AI}
+    \begin{itemize}
+        \item Pre-trained image processing model
+        \item Predicts coordinates where an image was taken
+    \end{itemize}
+    \item \textbf{Landmark Recognition}
+    \begin{itemize}
+        \item Google images API
+        \item Search by image to locate a popular landmark
+    \end{itemize}
+	\item \textbf{Region Specific AI}
+	\begin{itemize}
+        \item Uses a specialized AI model trained for a specific region
+        \item Enhances accuracy for areas with distinct visual features
+    \end{itemize}
+\end{enumerate}
+
+The primary goal of these experts is to work cohesively to provide an accurate prediction with little delay. GeoKnowr AI aims to deliver an initial estimate
+of where an image was taken by assigning coordinates. Then the region specific AI can further refine this prediction by applying localized knowledge. If a landmark is 
+present in the image, the Landmark Recognition software should pin point it's location.
 
 \subsection{Definitions, Acronyms, and Abbreviations}
 \label{sub:definitions_acronyms_and_abbreviations}
 % Begin SubSection
 \begin{itemize}
-	\item Provide the definitions of all terms, acronyms, and abbreviations required to properly interpret the SRS.
-	\item This should be in alphabetical order.
+	\item \textbf{GeoLens:} the system being specified
+	\item \textbf{AI:} Aritficial Intelligence
 \end{itemize}
 % End SubSection
 
@@ -117,12 +134,13 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-\begin{itemize}
-	\item Describe what the remainder of the document/SRS contains.\\
-	(e.g. "Section 2 discusses...Section 3...")
-%	\item Explain how the SRS is organized
-\end{itemize}
-% End SubSection
+Section 2 aims to put the value of GeoLens into perspective, relating and contrasting it to other similar products that currently exist.
+It should also provide a summary of the primary functions of the application and a description of the expected users. This should provide readers with a general understanding
+of the system, and how users are expected to intereact with it. Finally, constraints and assumptions are listed to clarify the scope of the application and the context in which it operated.\\\\
+Section 3 presents a use case digram outlining the main functionality and interactions with stakeholders.\\\\
+Section 4 is a detailed overview of the functional requirements, discussing what the system will do. These requirements will be organized in terms of 
+business events, viewpoints and scenarios. This provides a structured understanding of the system in various contexts. \\\\
+Finally, section 5 describes the Non-Functional Requirements, focusing on how the system aims to be a valuable service. This section provides a rationale for each requirement, explaining their necessity and benefits.
 
 % End Section
 
