@@ -430,7 +430,9 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:ease_of_use_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-EOU}1. ]
-	\item 
+	\item The system’s buttons shall be big and bright in colour.
+	\item The system shall allow users to complete the identification of a location within four steps.
+	\item The system shall allow users to report incorrect results through a feedback tool in the application.
 \end{enumerate}
 % End SubSubSection
 
@@ -438,7 +440,8 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:personalization_and_internationalization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-PI}1. ]
-	\item 
+	\item The system must be able to support multiple languages.
+	\item The system shall allow the user to select between the metric or imperial system to display information.
 \end{enumerate}
 % End SubSubSection
 
@@ -446,7 +449,9 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:learning_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-L}1. ]
-	\item 
+	\item The system shall have a basic tutorial for navigating through the features, which automatically executes the first time a user opens the app and is available at all times within the app.
+	\item The system shall provide short descriptions when the user presses and holds key features, that automatically fade after a short period.
+	\item The system shall have a demo that introduces the user to the app features and allows them to test it out before having to create an account.
 \end{enumerate}
 % End SubSubSection
 
@@ -454,7 +459,8 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-UP}1. ]
-	\item 
+	\item The system shall hide information and aspects of the app construction that are necessary for the user to interact with.
+	\item The system shall provide positive engagement with the user when they successfully identify a location.
 \end{enumerate}
 % End SubSubSection
 
@@ -462,7 +468,9 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-A}1. ]
-	\item 
+	\item The system must be compatible with screen readers.
+	\item The system shall allow built-in zoom-in and zoom-out features.
+	\item The system shall provide high-contrast options that are colorblind-friendly.
 \end{enumerate}
 % End SubSubSection
 
@@ -476,7 +484,8 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SL}1. ]
-	\item 
+	\item The system shall have a basic app response time of no longer than 3 seconds.
+	\item The system shall return location identification results within 5 seconds.
 \end{enumerate}
 % End SubSubSection
 
@@ -484,7 +493,8 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:safety_critical_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SC}1. ]
-	\item 
+	\item The system must securely encrypt all user data.
+	\item The system must not return locations that reveal people's addresses or sensitive information.
 \end{enumerate}
 % End SubSubSection
 
@@ -492,7 +502,8 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:precision_or_accuracy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-PA}1. ]
-	\item 
+	\item The system must successfully return the general location of the image processed to within 25 km of the actual area.
+	\item The system shall have a priority setting to assess the accuracy of each of the API's results.
 \end{enumerate}
 % End SubSubSection
 
@@ -500,7 +511,8 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RA}1. ]
-	\item 
+	\item The system must maintain an uptime of 99\%, except during routine maintenance, patch updates, and unexpected situations (ex. power outage).
+	\item The system shall save and backup the user's progress continuously.
 \end{enumerate}
 % End SubSubSection
 
@@ -508,7 +520,8 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RFT}1. ]
-	\item 
+	\item The system shall be able to handle incorrect inputs or inputs of wrong formats.
+	\item The system must retry a failed image input up to three times before alerting the user of an error.
 \end{enumerate}
 % End SubSubSection
 
@@ -516,7 +529,7 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:capacity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-C}1. ]
-	\item 
+	\item The system must be able to support at least 10000 concurrent users during peak usage hours.
 \end{enumerate}
 % End SubSubSection
 
@@ -524,7 +537,7 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SE}1. ]
-	\item 
+	\item The architecture of the system must be modular and allow APIs to be integrated without major refactoring.
 \end{enumerate}
 % End SubSubSection
 
@@ -532,7 +545,7 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-L}1. ]
-	\item 
+	\item The system shall have quarterly updates for new and changed locations.
 \end{enumerate}
 % End SubSubSection
 
@@ -546,7 +559,7 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
 \begin{enumerate}[{OE-EPE}1. ]
-	\item 
+	\item The system should be able to process images in various outdoor conditions.
 \end{enumerate}
 % End SubSubSection
 
@@ -554,7 +567,7 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
 \begin{enumerate}[{OE-IA}1. ]
-	\item 
+	\item The system must be able to send and receive geolocation data with all the connected APIs.
 \end{enumerate}
 % End SubSubSection
 
@@ -562,7 +575,7 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:productization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-P}1. ]
-	\item 
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -570,7 +583,7 @@ Be consistent with similar statements in higher-level specifications (e.g., the 
 \label{ssub:release_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-R}1. ]
-	\item 
+	\item The system must be compatible with Android 14 (API level 34).
 \end{enumerate}
 % End SubSubSection
 
