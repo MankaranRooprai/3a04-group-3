@@ -315,135 +315,207 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 \noindent {\bf Interpretation:} Specify any liberties you took in interpreting business events, if necessary.\\
 
 \begin{enumerate}[{\bf BE1.}]
-	\item Business Event Name \#1
+	\item User Submits a Picture (not region specific)
+        \\ Pre-Condition: The user must have an account and a working app with internet connection. 
 		\begin{enumerate}[{\bf VP1.}]
-			\item Viewpoint Name \#1 \\
-				\textcolor{red}{Insert Scenario Here}
-			\item Viewpoint Name \#2 \\
-				\textcolor{red}{Insert Scenario Here}
+			\item User \\
+				Main Success Scenario
+                    \begin{enumerate}[{1.}]
+                        \item User opens the app on their mobile device.
+                        \item The app prompts the user to enter their login information.
+                        \item User enters their login information.
+                        \item System authenticates the user. 
+                        \item System gives user options to choose from (Submit a Picture, Submit a Landmark). 
+                        \item User chooses “Submit a Picture”. 
+                        \item Systems prompts the user to upload a picture within the resolution and format requirements.
+                        \item User uploads picture.
+                        \item System prompts the user to include a general region where the picture is from. 
+                        \item User does not input a region. 
+                        \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
+                        \item User adds comments.
+                        \item User submits the post.
+                        \item System sends data to the general AI.
+                        \item The general AI returns an approximate location, which is passed to the region specific AI.
+                        \item The region-specific AI returns an answer. 
+                        \item Answer is displayed to the user. \\
+                    \end{enumerate}
+                    Secondary Scenario \\
+                    4.i. System fails to authenticate user. Login failed, retry form step 3. \\
+                    8.i. User uploads a photo outside quality/format requirements. Retry from step 8.\\ 
+                    14.i. System fails to send post to AI. \\
+                    14.ii. The post is not sent, but the data is saved. Retry from step 13. \\
+                    14.ii. The post is not sent and information is not saved. Retry from step 7. \\
+                    15.i. General AI cannot return an answer. Error page is displayed. 
+                    16.i. The region-specific AI cannot return an answer. The general answer returned by the general AI is returned to the user.
+                    
+			\item Customer Support \\
+				4.i. On failure, system prompts user with contact          information for Customer Support. \\
+                    8.i. On failure, system displays image parameters and prompts user with contact information for Customer Support. \\
+                    14.i. System displays an error page with contact information for Customer Support. \\
+	            14.ii. System prompts user to retry send, or contact       Customer Support. \\
+	            14.ii. System prompts user to re-input image and data,     or contact Customer Support. \\
 		\end{enumerate}
 		{\bf Global Scenario:}\\
-		\textcolor{red}{Insert Scenario Here}
-	\item Business Event Name \#2
+            Pre-Condition: The user must have an account and a working app with internet connection. 
+		      \begin{enumerate}[{1.}]
+                    \item User opens the app on their mobile device. 
+                    \item The app prompts the user to enter their login information.
+                    \item User enters their login information.
+                    \item System authenticates the user. 
+                    \item System gives user options to choose from (Submit a Picture, Submit a Landmark).  
+                    \item User chooses “Submit a Picture”. 
+                    \item Systems prompts the user to upload a picture within the resolution and format requirements.
+                    \item User uploads picture.
+                    \item System prompts the user to include a general region where the picture is from. 
+                    \item User does not input a region. 
+                    \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
+                    \item User adds comments.
+                    \item User submits the post.
+                    \item System sends data to the general AI.
+                    \item The general AI returns an approximate location, which is passed to the region specific AI.
+                    \item The region-specific AI returns an answer. 
+                    \item Answer is displayed to the user. \\
+                \end{enumerate}
+                    Secondary Scenario \\
+                    4.i. System fails to authenticate the user. 
+                    System prompts user with contact information for Customer Support. User can retry from step 3. \\
+                    8.i. User uploads a photo outside quality/format requirements. System displays image parameters. System prompts user with contact information for Customer Support.User can retry from step 8. \\
+                    14.i. System fails to send post to the forum. \\
+	            14.ii. 	The post is not sent, but the data is saved. \\
+                    System prompts user to contact Customer Support. User can retry from step 13. \\
+	            14.ii. 	The post is not sent and information is not        saved.\\ 
+                    System prompts user to contact Customer Support. User can retry from step 7. \\
+                    15.i. General AI cannot return an answer. Error page is displayed. \\ 
+                    16.i. The region-specific AI cannot return an answer. The general answer returned by the general AI is returned to the user.\\
+	\item User Submits a Picture (region specific)
 	\begin{enumerate}[{\bf VP1.}]
-		\item Viewpoint Name \#1 \\
-		\textcolor{red}{Insert Scenario Here}
-		\item Viewpoint Name \#2 \\
-		\textcolor{red}{Insert Scenario Here}
+		\item User \\
+		Main Success Scenario
+                    \begin{enumerate}[{1.}]
+                        \item User opens the app on their mobile device.
+                        \item The app prompts the user to enter their login information.
+                        \item User enters their login information.
+                        \item System authenticates the user. 
+                        \item System gives user options to choose from (Submit a Picture, Submit a Landmark). 
+                        \item User chooses “Submit a Picture”. 
+                        \item Systems prompts the user to upload a picture within the resolution and format requirements.
+                        \item User uploads picture.
+                        \item System prompts the user to include a general region where the picture is from. 
+                        \item User inputs a region. 
+                        \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
+                        \item User adds comments.
+                        \item User submits the post.
+                        \item System sends data to the appropriate region-specific AI. 
+                        \item The region-specific AI returns an answer. 
+                        \item Answer is displayed to the user. \\
+                    \end{enumerate}
+                    Secondary Scenario \\
+                    4.i. System fails to authenticate user. Login failed, retry form step 3. \\
+                    8.i. User uploads a photo outside quality/format requirements. Retry from step 8.\\ 
+                    14.i. System fails to send post to AI. \\
+                    14.ii. The post is not sent, but the data is saved. Retry from step 13. \\
+                    14.ii. The post is not sent and information is not saved. Retry from step 7. \\
+                    15.i. The region-specific AI cannot return an answer. Error page is displayed. \\
+			\item Customer Support \\
+				4.i. On failure, system prompts user with contact          information for Customer Support. \\
+                    8.i. On failure, system displays image parameters and prompts user with contact information for Customer Support. \\
+                    14.i. System displays an error page with contact information for Customer Support. \\
+	            14.ii. System prompts user to retry send, or contact       Customer Support. \\
+	            14.ii. System prompts user to re-input image and data,     or contact Customer Support. \\
+		\end{enumerate}
+		{\bf Global Scenario:}\\
+            Pre-Condition: The user must have an account and a working app with internet connection. 
+		      \begin{enumerate}[{1.}]
+                    \item User opens the app on their mobile device. 
+                    \item The app prompts the user to enter their login information.
+                    \item User enters their login information.
+                    \item System authenticates the user. 
+                    \item System gives user options to choose from (Submit a Picture, Submit a Landmark).  
+                    \item User chooses “Submit a Picture”. 
+                    \item Systems prompts the user to upload a picture within the resolution and format requirements.
+                    \item User uploads picture.
+                    \item System prompts the user to include a general region where the picture is from. 
+                    \item User inputs a region. 
+                    \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
+                    \item User adds comments.
+                    \item User submits the post.
+                    \item System sends data to the appropriate region-specific AI. 
+                    \item The region-specific AI returns an answer. 
+                    \item Answer is displayed to the user. \\
+                \end{enumerate}
+                    Secondary Scenario \\
+                    4.i. System fails to authenticate the user. 
+                    System prompts user with contact information for Customer Support. User can retry from step 3. \\
+                    8.i. User uploads a photo outside quality/format requirements. System displays image parameters. System prompts user with contact information for Customer Support.User can retry from step 8. \\
+                    14.i. System fails to send post to the forum. \\
+	            14.ii. 	The post is not sent, but the data is saved. \\
+                    System prompts user to contact Customer Support. User can retry from step 13. \\
+	            14.ii. 	The post is not sent and information is not        saved.\\ 
+                    System prompts user to contact Customer Support. User can retry from step 7. \\
+                    15.i The region-specific AI cannot return an answer. Error page is displayed. \\
+
+		\item User Submits a Landmark
+		\begin{enumerate}[{\bf VP1.}]
+		\item User \\
+		Main Success Scenario
+                    \begin{enumerate}[{1.}]
+                        \item User opens the app on their mobile device.
+                        \item The app prompts the user to enter their login information.
+                        \item User enters their login information.
+                        \item System authenticates the user. 
+                        \item System gives user options to choose from (Submit a Picture, Submit a Landmark). 
+                        \item User chooses “Submit a Landmark”. 
+                        \item Systems prompts the user to upload a picture within the resolution and format requirements.
+                        \item User uploads picture.
+                        \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
+                        \item User adds comments.
+                        \item User submits the post.
+                        \item System sends data to the landmark-focused AI. 
+                        \item The landmark-focused AI returns an answer. 
+                        \item Answer is displayed to the user. \\
+                    \end{enumerate}
+                    Secondary Scenario \\
+                    4.i. System fails to authenticate user. Login failed, retry form step 3. \\
+                    8.i. User uploads a photo outside quality/format requirements. Retry from step 8.\\ 
+                    12.i. System fails to send post to AI. \\
+                    12.ii. The post is not sent, but the data is saved. Retry from step 11. \\
+                    12.ii. The post is not sent and information is not saved. Retry from step 7. \\
+                    13.i. The landmark-focused AI cannot return an answer. Error page is displayed. \\
+			\item Customer Support \\
+				4.i. On failure, system prompts user with contact          information for Customer Support. \\
+                    8.i. On failure, system displays image parameters and prompts user with contact information for Customer Support. \\
+                    12.i. System displays an error page with contact information for Customer Support. \\
+	            12.ii. System prompts user to retry send, or contact       Customer Support. \\
+	            12.ii. System prompts user to re-input image and data,     or contact Customer Support. \\ 
+		\end{enumerate}
+		{\bf Global Scenario:}\\
+            Pre-Condition: The user must have an account and a working app with internet connection. 
+		      \begin{enumerate}[{1.}]
+                    \item User opens the app on their mobile device. 
+                    \item The app prompts the user to enter their login information.
+                    \item User enters their login information.
+                    \item System authenticates the user. 
+                    \item System gives user options to choose from (Submit a Picture, Submit a Landmark).  
+                    \item User chooses “Submit a Landmark”. 
+                    \item Systems prompts the user to upload a picture within the resolution and format requirements.
+                    \item User uploads picture.
+                    \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
+                    \item User adds comments.
+                    \item User submits the post.
+                    \item System sends data to the landmark-focused AI. 
+                \end{enumerate}
+                    Secondary Scenario \\
+                    4.i. System fails to authenticate the user. 
+                    System prompts user with contact information for Customer Support. User can retry from step 3. \\
+                    8.i. User uploads a photo outside quality/format requirements. System displays image parameters. System prompts user with contact information for Customer Support.User can retry from step 8. \\
+                    12.i. System fails to send post to the forum. \\
+	            12.ii. 	The post is not sent, but the data is saved. \\
+                    System prompts user to contact Customer Support. User can retry from step 11. \\
+	            12.ii. 	The post is not sent and information is not        saved.\\ 
+                    System prompts user to contact Customer Support. User can retry from step 7. \\
+                    13.i. The landmark-focused AI cannot return an answer. Error page is displayed. \\
+
 	\end{enumerate}
-	{\bf Global Scenario:}\\
-	\textcolor{red}{Insert Scenario Here}
-\end{enumerate}
-
-%	Below, we organize by Business Event.
-%	\begin{enumerate}[{BE}1.]
-%		\item Business Event name
-%		\begin{enumerate}[{VP1}.1]
-%			\item Viewpoint name \newline
-%			\noindent\fbox{%
-%				\parbox{0.5\textwidth}{%
-%					\begin{itemize}
-%						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%						\item[] $\cdots$
-%						\item {\bf $S_{n}$:}  Response of the system to $E_{(n-1)}$
-%						\item {\bf $E_{n}$:}  Reaction of the environment to $E_{(n-1)}$
-%						\item {\bf $S_{(n+1)}$:} Final response of the system concluding its function regarding the Business Event
-%					\end{itemize}
-%				}%
-%			}
-%			\item Viewpoint name\newline
-%			\noindent\fbox{%
-%				\parbox{0.5\textwidth}{%
-%					\begin{itemize}
-%						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%						\item[] $\cdots$
-%						\item {\bf $S_{k}$:}  Response of the system to $E_{(k-1)}$
-%						\item {\bf $E_{k}$:}  Reaction of the environment to $E_{(k-1)}$
-%						\item {\bf $S_{(k+1)}$:} Final response of the system concluding its function regarding the Business Event
-%					\end{itemize}
-%				}%
-%			}
-%			\item \dots
-%			\item \dots
-%			\item \dots
-%			\item[\dots]
-%		\end{enumerate}	
-%		\item[] {\bf Global Scenario of {\it Business Event Name}:} It is the scenario corresponding to the integration of all the above scenarios from the different Viewpoints of the Business Event BE1.\newline
-%		\noindent\fbox{%
-%			\parbox{0.5\textwidth}{%
-%				\begin{itemize}
-%					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%					\item[] $\cdots$
-%					\item {\bf $S_{m}$:}  Response of the system to $E_{(m-1)}$
-%					\item {\bf $E_{m}$:}  Reaction of the environment to $E_{(m-1)}$
-%					\item {\bf $S_{(m+1)}$:} Final response of the system concluding its function regarding the Business Event
-%				\end{itemize}
-%			}%
-%		}	
-%		%\end{enumerate}
-%		\item Business Event name
-%		\begin{enumerate}[{VP1}.1]
-%			\item Viewpoint name \newline
-%			\noindent\fbox{%
-%				\parbox{0.5\textwidth}{%
-%					\begin{itemize}
-%						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%						\item[] $\cdots$
-%						\item {\bf $S_{n'}$:}  Response of the system to $E_{(n'-1)}$
-%						\item {\bf $E_{n'}$:}  Reaction of the environment to $E_{(n'-1)}$
-%						\item {\bf $S_{(n'+1)}$:} Final response of the system concluding its function regarding the Business Event
-%					\end{itemize}
-%				}%
-%			}
-%			\item Viewpoint name\newline
-%			\noindent\fbox{%
-%				\parbox{0.5\textwidth}{%
-%					\begin{itemize}
-%						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%						\item[] $\cdots$
-%						\item {\bf $S_{k'}$:}  Response of the system to $E_{(k'-1)}$
-%						\item {\bf $E_{k'}$:}  Reaction of the environment to $E_{(k'-1)}$
-%						\item {\bf $S_{(k'+1)}$:} Final response of the system concluding its function regarding the Business Event
-%					\end{itemize}
-%				}%
-%			}
-%			\item \dots
-%			\item \dots
-%			\item \dots
-%			\item[\dots]
-%		\end{enumerate}	
-%		\item[] {\bf Global Scenario of {\it Business Event Name}:} It is the scenario corresponding to the integration of all the above scenarios from the different Viewpoints of the Business Event BE2.\newline
-%		\noindent\fbox{%
-%			\parbox{0.5\textwidth}{%
-%				\begin{itemize}
-%					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%					\item[] $\cdots$
-%					\item {\bf $S_{m'}$:}  Response of the system to $E_{(m'-1)}$
-%					\item {\bf $E_{m'}$:}  Reaction of the environment to $E_{(m'-1)}$
-%					\item {\bf $S_{(m'+1)}$:} Final response of the system concluding its function regarding the Business Event
-%				\end{itemize}
-%			}%
-%		}		
-%	\end{enumerate}
-
 %End Section
 
 \section{Non-Functional Requirements}
