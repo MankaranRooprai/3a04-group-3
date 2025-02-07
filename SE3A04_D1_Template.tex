@@ -131,6 +131,14 @@ present in the image, the Landmark Recognition software should pin point it's lo
 \end{itemize}
 % End SubSection
 
+\begin{thebibliography}{9}
+    \bibitem{ref1} Non-functional requirements - the University of Texas at ..., https://personal.utdallas.edu/~chung/SYSM6309/NFR-18-4-on-1.pdf (accessed Feb. 7, 2025).
+    \bibitem{ref2} AltexSoft,"Nonfunctional requirements:Examples, types and approaches,"AltexSoft,https://www.altexsoft.com/blog/non-functional-requirements/ (accessed Feb. 7, 2025).
+    \bibitem{ref3} “Android mobile App Developer tools,” Android Developers, https://developer.android.com/ (accessed Feb. 7, 2025). 
+	\bibitem{ref4} insert ref here
+	\bibitem{ref4} insert ref here
+\end{thebibliography}
+
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
@@ -542,10 +550,14 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{LF-A}1. ]
 	\item The system shall have a minimalistic and clean UI.
-
-	Rationale: 
+	
+	{\bf Rationale:} A minimalistic and clean UI reduces visual clutter and will allow users to quickly interact with the app while avoiding unnecessary distractions.
 	\item All images in the system must be high-quality with the resolution well-adjusted.
+	
+	{\bf Rationale:} High-quality images ensure a visually appealing and professional user experience. Low-resolution or poorly adjusted images may lead to confusion of the exact location users are looking for, and may reduce the app's credibility and engagement.
 	\item The system shall use a consistent and legible font.
+	
+	{\bf Rationale:} Using a clear and legible font improves readability for users and ensures they can properly navigate the app while reducing extra cognitive strain when reading.
 \end{enumerate}
 % End SubSubSection
 
@@ -554,9 +566,17 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{LF-S}1. ]
 	\item The system shall have both a light and dark mode option.
+	
+	{\bf Rationale:} Multiple theme modes provide flexibility and comfort for users, depending on which mode they prefer. Many users prefer dark mode for visual comfort, while others use light mode as either the default theme or in bright environments.
 	\item The system must follow a gamified design and have visually appealing elements (ex. Leaderboard, user profile).
+	
+	{\bf Rationale:} The app has an additional game feature. Users are given an image of a location and are tasked with guessing the location. The gamified design is consistent with this feature and enhances user engagement by making the experience interactive and fun.
 	\item The system must scale to the size of the screen.
+		
+	{\bf Rationale:} Users may have various types and sizes of devices when accessing the app, as such it is important the system scales to fit the screen size to optimize the layout and consistency of the app.
 	\item The system must use consistent spacing and padding between elements.
+	
+	{\bf Rationale:} Proper spacing between elements improves readability and makes it harder for users to be distracted by visual inconsistencies.
 \end{enumerate}
 % End SubSubSection
 
@@ -570,9 +590,15 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 \label{ssub:ease_of_use_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-EOU}1. ]
-	\item The system’s buttons shall be big and bright in colour.
+	\item The system's buttons shall be big and bright in colour.
+		
+	{\bf Rationale:} The app's buttons would be easy to tap, and larger and brighter buttons would ensure that users can comfortably interact with them, especially on smaller screens.
 	\item The system shall allow users to complete the identification of a location within four steps.
+		
+	{\bf Rationale:} By reducing the number of steps required to complete the system's primary task (the main motivation for downloading the app), users will experience less frustration and an efficient and simple app design.
 	\item The system shall allow users to report incorrect results through a feedback tool in the application.
+	
+	{\bf Rationale:} Allowing users a method to report incorrect results encourages them to increase engagement with the app. This also helps maintain accuracy when providing location solutions to users, enhancing the app's reliability and user trust.
 \end{enumerate}
 % End SubSubSection
 
@@ -581,7 +607,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{UH-PI}1. ]
 	\item The system must be able to support multiple languages.
+		
+	{\bf Rationale:} This feature enhances user experience by providing localized content, allowing users to interact with the app in their preferred language.
 	\item The system shall allow the user to select between the metric or imperial system to display information.
+	
+	{\bf Rationale:} Different regions use different measurement systems, improving usability on a wider scale.
 \end{enumerate}
 % End SubSubSection
 
@@ -590,8 +620,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{UH-L}1. ]
 	\item The system shall have a basic tutorial for navigating through the features, which automatically executes the first time a user opens the app and is available at all times within the app.
+		
+	{\bf Rationale:} A built-in tutorial ensures that new users can quickly understand how to navigate the app’s features without overwhelming them. Having the option to review the tutorial enhances usability and accessibility for users who may have forgotten certain functions.
 	\item The system shall provide short descriptions when the user presses and holds key features, that automatically fade after a short period.
-	\item The system shall have a demo that introduces the user to the app features and allows them to test it out before having to create an account.
+	
+	{\bf Rationale:} Users should be able to learn how basic functionalities work without exiting the app and using external guides.
 \end{enumerate}
 % End SubSubSection
 
@@ -599,8 +632,12 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-UP}1. ]
-	\item The system shall hide information and aspects of the app construction that are necessary for the user to interact with.
+	\item The system shall hide information and aspects of the app construction that are necessary for the user to interact with [1].
+		
+	{\bf Rationale:} Hiding unnecessary technical details and background processes simplifies the user experience, making the app more intuitive and user-friendly [1].
 	\item The system shall provide positive engagement with the user when they successfully identify a location.
+	
+	{\bf Rationale:} Positive reinforcement encourages users to continue to engage with the app and makes the experience more enjoyable and rewarding.
 \end{enumerate}
 % End SubSubSection
 
@@ -609,8 +646,14 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{UH-A}1. ]
 	\item The system must be compatible with screen readers.
+		
+	{\bf Rationale:} Compatibility with screen readers supports visually impaired users and improves inclusivity and accessibility for a wider range of users.
 	\item The system shall allow built-in zoom-in and zoom-out features.
+		
+	{\bf Rationale:} Zoom features improve accessibility by allowing users to adjust content visibility according to their needs.
 	\item The system shall provide high-contrast options that are colorblind-friendly.
+	
+	{\bf Rationale:} High-contrast options ensure that users with colour vision deficiencies can comfortably use the app.
 \end{enumerate}
 % End SubSubSection
 
@@ -624,8 +667,12 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SL}1. ]
-	\item The system shall have a basic app response time of no longer than 3 seconds.
+	\item The system shall have a basic app response time of no longer than 3 seconds [2].
+		
+	{\bf Rationale:} According to Google recommendations for performance requirements, apps with a response time longer than 3 seconds lose over half of user engagement [2]. As such, the app must process and return information fast.
 	\item The system shall return location identification results within 5 seconds.
+	
+	{\bf Rationale:} The system must complete its basic functions quickly, as users expect fast responses. Delays of more than a few seconds may lead to frustration and lower user engagement.
 \end{enumerate}
 % End SubSubSection
 
@@ -634,7 +681,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-SC}1. ]
 	\item The system must securely encrypt all user data.
+		
+	{\bf Rationale:} Data encryption prevents unauthorized access to sensitive information.
 	\item The system must not return locations that reveal people's addresses or sensitive information.
+	
+	{\bf Rationale:} Protecting user privacy is essential to prevent possible safety risks like unauthorized tracking or doxxing. This aligns with ethical data handling practices and ensures the app complies with privacy regulations.
 \end{enumerate}
 % End SubSubSection
 
@@ -643,7 +694,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-PA}1. ]
 	\item The system must successfully return the general location of the image processed to within 25 km of the actual area.
+		
+	{\bf Rationale:} Returning the location result within a range balances both accuracy and feasibility. To ensure the app provides accurate and useful data for users, potential limits in AI-based location identification APIs must be accounted for.
 	\item The system shall have a priority setting to assess the accuracy of each of the API's results.
+	
+	{\bf Rationale:} If the APIs return contrasting location results, a priority system must be implemented to assess the accuracy of each expert's results and select the most reliable response.
 \end{enumerate}
 % End SubSubSection
 
@@ -652,7 +707,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-RA}1. ]
 	\item The system must maintain an uptime of 99\%, except during routine maintenance, patch updates, and unexpected situations (ex. power outage).
+		
+	{\bf Rationale:} Ensuring a 99\% uptime guarantees that users can access the system reliably and do not face issues or disruption while interacting with the app.
 	\item The system shall save and backup the user's progress continuously.
+	
+	{\bf Rationale:} Consistent saving and backup of user progress ensures that no data is lost due to unexpected events, such as update crashes or power outages.
 \end{enumerate}
 % End SubSubSection
 
@@ -661,7 +720,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-RFT}1. ]
 	\item The system shall be able to handle incorrect inputs or inputs of wrong formats.
+		
+	{\bf Rationale:} If users submit a format that cannot be accepted (ex. A PDF instead of an image), the system must not crash or cause any errors and gracefully handle the issue.
 	\item The system must retry a failed image input up to three times before alerting the user of an error.
+	
+	{\bf Rationale:} Having the system retry processing image inputs can reduce user frustration in light of potential network instability and increase the success rate of submissions.
 \end{enumerate}
 % End SubSubSection
 
@@ -670,6 +733,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-C}1. ]
 	\item The system must be able to support at least 10000 concurrent users during peak usage hours.
+	
+	{\bf Rationale:} This requirement is crucial, as it will prevent potential crashes and lag as the app attracts more users. The system should be able to maintain performance under load and reduce service failures or delays.
 \end{enumerate}
 % End SubSubSection
 
@@ -678,6 +743,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-SE}1. ]
 	\item The architecture of the system must be modular and allow APIs to be integrated without major refactoring.
+	
+	{\bf Rationale:} If the system’s architecture is modular, scalability and app expansions can be made without interference with the integrated APIs.
 \end{enumerate}
 % End SubSubSection
 
@@ -686,6 +753,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-L}1. ]
 	\item The system shall have quarterly updates for new and changed locations.
+	
+	{\bf Rationale:} Quarterly updates ensure the system reflects recent and accurate location data, maintaining reliable solutions for users over time.
 \end{enumerate}
 % End SubSubSection
 
@@ -700,6 +769,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{OE-EPE}1. ]
 	\item The system should be able to process images in various outdoor conditions.
+	
+	{\bf Rationale:} Many images are taken in various real-world conditions, so the system must be flexible in accurately processing images under different lighting, scenarios, and situations.
 \end{enumerate}
 % End SubSubSection
 
@@ -708,6 +779,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{OE-IA}1. ]
 	\item The system must be able to send and receive geolocation data with all the connected APIs.
+	
+	{\bf Rationale:} For the app to complete its most basic function, it must be able to seamlessly integrate with all APIs to collect, assess, and return precise location results.
 \end{enumerate}
 % End SubSubSection
 
@@ -723,7 +796,9 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 \label{ssub:release_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-R}1. ]
-	\item The system must be compatible with Android 14 (API level 34).
+	\item The system must be compatible with Android 14 (API level 34) [3].
+	
+	{\bf Rationale:} The app’s compatibility with at least Android 14 guarantees that it is accessible to a wide user base [3], as it supports the latest Android features in terms of performance, security, and access to new platform abilities.
 \end{enumerate}
 % End SubSubSection
 
