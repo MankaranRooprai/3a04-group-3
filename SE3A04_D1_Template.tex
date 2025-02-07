@@ -470,11 +470,13 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 \begin{enumerate}[{LF-A}1. ]
 	\item The system shall have a minimalistic and clean UI.
 	
-	{\bf Rationale:} Ot
-
-	Rationale: 
+	{\bf Rationale:} A minimalistic and clean UI reduces visual clutter and will allow users to quickly interact with the app while avoiding unnecessary distractions.
 	\item All images in the system must be high-quality with the resolution well-adjusted.
+	
+	{\bf Rationale:} 
 	\item The system shall use a consistent and legible font.
+	
+	{\bf Rationale:} 
 \end{enumerate}
 % End SubSubSection
 
@@ -483,9 +485,17 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{LF-S}1. ]
 	\item The system shall have both a light and dark mode option.
+	
+	{\bf Rationale:}
 	\item The system must follow a gamified design and have visually appealing elements (ex. Leaderboard, user profile).
+	
+	{\bf Rationale:}
 	\item The system must scale to the size of the screen.
+		
+	{\bf Rationale:}
 	\item The system must use consistent spacing and padding between elements.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -500,8 +510,14 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{UH-EOU}1. ]
 	\item The system’s buttons shall be big and bright in colour.
+		
+	{\bf Rationale:}
 	\item The system shall allow users to complete the identification of a location within four steps.
+		
+	{\bf Rationale:}
 	\item The system shall allow users to report incorrect results through a feedback tool in the application.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -510,7 +526,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{UH-PI}1. ]
 	\item The system must be able to support multiple languages.
+		
+	{\bf Rationale:}
 	\item The system shall allow the user to select between the metric or imperial system to display information.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -519,8 +539,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{UH-L}1. ]
 	\item The system shall have a basic tutorial for navigating through the features, which automatically executes the first time a user opens the app and is available at all times within the app.
+		
+	{\bf Rationale:}
 	\item The system shall provide short descriptions when the user presses and holds key features, that automatically fade after a short period.
-	\item The system shall have a demo that introduces the user to the app features and allows them to test it out before having to create an account.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -529,7 +552,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{UH-UP}1. ]
 	\item The system shall hide information and aspects of the app construction that are necessary for the user to interact with.
+		
+	{\bf Rationale:}
 	\item The system shall provide positive engagement with the user when they successfully identify a location.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -538,8 +565,14 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{UH-A}1. ]
 	\item The system must be compatible with screen readers.
+		
+	{\bf Rationale:}
 	\item The system shall allow built-in zoom-in and zoom-out features.
+		
+	{\bf Rationale:}
 	\item The system shall provide high-contrast options that are colorblind-friendly.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -554,7 +587,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-SL}1. ]
 	\item The system shall have a basic app response time of no longer than 3 seconds.
+		
+	{\bf Rationale:}
 	\item The system shall return location identification results within 5 seconds.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -563,7 +600,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-SC}1. ]
 	\item The system must securely encrypt all user data.
+		
+	{\bf Rationale:}
 	\item The system must not return locations that reveal people's addresses or sensitive information.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -572,7 +613,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-PA}1. ]
 	\item The system must successfully return the general location of the image processed to within 25 km of the actual area.
+		
+	{\bf Rationale:}
 	\item The system shall have a priority setting to assess the accuracy of each of the API's results.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -581,7 +626,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-RA}1. ]
 	\item The system must maintain an uptime of 99\%, except during routine maintenance, patch updates, and unexpected situations (ex. power outage).
+		
+	{\bf Rationale:}
 	\item The system shall save and backup the user's progress continuously.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -590,7 +639,11 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-RFT}1. ]
 	\item The system shall be able to handle incorrect inputs or inputs of wrong formats.
+		
+	{\bf Rationale:}
 	\item The system must retry a failed image input up to three times before alerting the user of an error.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -599,6 +652,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-C}1. ]
 	\item The system must be able to support at least 10000 concurrent users during peak usage hours.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -607,6 +662,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-SE}1. ]
 	\item The architecture of the system must be modular and allow APIs to be integrated without major refactoring.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -615,6 +672,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{PR-L}1. ]
 	\item The system shall have quarterly updates for new and changed locations.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -629,6 +688,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{OE-EPE}1. ]
 	\item The system should be able to process images in various outdoor conditions.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -637,6 +698,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{OE-IA}1. ]
 	\item The system must be able to send and receive geolocation data with all the connected APIs.
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
@@ -653,6 +716,8 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 % Begin SubSubSection
 \begin{enumerate}[{OE-R}1. ]
 	\item The system must be compatible with Android 14 (API level 34).
+	
+	{\bf Rationale:}
 \end{enumerate}
 % End SubSubSection
 
