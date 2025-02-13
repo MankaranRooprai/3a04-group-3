@@ -14,6 +14,7 @@
 %\usepackage{setspace}
 %\usepackage{xcolor}
 \usepackage{color}
+\usepackage{float}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -165,36 +166,77 @@ Finally, section 5 describes the Non-Functional Requirements, focusing on how th
 
 \subsection{Product Perspective}
 \label{sub:product_perspective}
-% Begin SubSection
-\begin{itemize}
-	% \item Put the product into perspective with other related products, i.e., context
 
-	%This was bugging out my compiler
-	%\noindent {AppName is a mobile game guessing app developed for the Android platform. A similar product is GeoGuessr, which allows users to guess the location of randomly given locations from a Google Street View. However, this product will require a user to submit a picture of a location they wish to identify. The application will consult the 3 experts: an algorithm that aggregates responses from users around the world, and AI model, and Rainbolt. Each expert will return a confidence level and if the confidence level meets a predefined threshold of 70\%, then that expert's response will be return in the same order as above. The product also consists of a unique feature, which is a game that has competition modes, where players can play against each other individually or as a group. Additionally, the product will allow users to create and modify profiles that will be used in the app. This means a login and signup feature will be required. The product will compare a photo taken by
-	%}
-	%\noindent {}
+\noindent GeoLens is a mobile game guessing app developed for the Android platform. A similar product is GeoGuessr, which allows users to guess the location of randomly given locations from a Google Street View. However, GeoLens requires a user to submit a picture of a location they wish to identify. The application will consult three specialized experts: a lightweight AI called GeoKnowr which is based off of GeoGuessr, a Landmark Recognition service, and a region-specific generative AI. Each expert will return a confidence level and if the confidence level meets a predefined threshold of 70\%, then that expert's response will be returned in the same order as above.\\
 
-	\item If the product is independent and totally self-contained, it should be stated here
-	\item If the SRS defines a product that is a component of a larger system, then this subsection should relate the requirements of that larger system to the functionality of the software being developed. Identify interfaces between that larger system and the software to be developed.
-	\item A block diagram showing the major components of the larger system, interconnections, and external interfaces can be helpful
-\end{itemize}
-% End SubSection
+\noindent In addition to the AI-driven location identification, GeoLens has a unique gameplay feature with competition modes, where players can play against each other individually, with real-time score tracking and leaderboards. Additionally, the product will allow users to create and modify profiles that will be used in the app. This means that a log-in and sign-up feature will be required.\\
+
+\noindent The system architecture consists of multiple layers. Firstly, there is the Host DBMS layer for storing user profiles, previously submitted images, as well as game history. Secondly, there is the Orchestrator Wrapper which is responsible for managing images, managing accounts, and allowing users to engage in competition mode. Next is the external AI layer which is where the Image Identification Service module calls on to identify photos, where it calls upon a confidence evaluator, which aggregates responses from multiple AI models to determine the most accurate result. Lastly, the Figure UI layer is where the user interacts with GeoLens.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{system_diagram.png}
+    \caption{System Architecture Diagram}
+    \label{fig:system_diagram}
+\end{figure}
 
 \subsection{Product Functions}
 \label{sub:product_functions}
 % Begin SubSection
-\begin{itemize}
-	\item Provide a \emph{summary} of the major functions that the software will perform.
-	\begin{itemize}
-		\item \textbf{Example}: An SRS for an accounting program may use this part to address customer account maintenance, customer statement, and invoice preparation without mentioning the vast amount of detail that each of those functions requires.
-	\end{itemize}
-	\item Functions should be organized in a way that makes the list of functions understandable to the customer or to anyone else reading the document for the first time 
-	\item Present the functions in a list format - each item should be one function, with a brief description of it
-	\item Textual or graphical methods can be used to show the different functions and their relationships
-	\begin{itemize}
-		\item Such a diagram is not intended to show a design of a product, but simply shows the logical relationships among variables
-	\end{itemize} 
-\end{itemize}
+
+\noindent There will be 4 modules in the product: Image Management, Account Services, Competition Mode, and the Image Identification Service. The major functions of the software in Image  Management include uploading images, allowing users in Competition Mode to see the picture of a location and make a guess, providing additional context for images, and sending images for AI processing. Within Account Services, there are functions of creating and updating accounts, and logging in. Competition Mode allows users to engage in challenges, view leaderboards, and compete in multiplayer mode. Lastly, Image Identification Services involves AI models processing images, evaluating their confidence, and returning predictions for the location.\\
+
+\noindent The following table outlines the major functions within each module:
+
+\noindent
+\begin{tabular}{| p{3cm} | p{13cm} |} % Adjust column widths
+    \hline
+    \raggedright \textbf{Modules} & \textbf{Functions} \\
+    \hline
+    \raggedright \textbf{Image Management} & 
+    • Upload Image \newline 
+    \makebox[5mm]{} - Allows users to submit an image for location identification. \vspace{5pt}\newline
+    • Provide Additional Context \newline 
+    \makebox[5mm]{} - Users can enter optional metadata (e.g., approximate location, description). \vspace{5pt}\newline
+    • Return Image Guess Result to User in Competition Mode \newline 
+    \makebox[5mm]{} - Users in Competition Mode see the picture of a location and make a guess. \vspace{5pt}\newline
+    • Send to AI Processing \newline 
+    \makebox[5mm]{} - Forwards submitted images to AI experts for analysis. \\
+    \hline
+    \raggedright \textbf{Account Services} & 
+    • Create Account \newline 
+    \makebox[5mm]{} - Allows users to register a new account. \vspace{5pt}\newline
+    • Login/Logout \newline 
+    \makebox[5mm]{} - Users can authenticate themselves to access features. \vspace{5pt}\newline
+    • Manage Profile \newline 
+    \makebox[5mm]{} - Users can update their profile information. \\
+    \hline
+    \raggedright \textbf{Competition Mode} & 
+    • Start Challenge \newline 
+    \makebox[5mm]{} - Allows users to enter a competitive mode where they try to guess locations. \vspace{5pt}\newline
+    • Leaderboard \newline 
+    \makebox[5mm]{} - Tracks and ranks users based on their accuracy.\vspace{5pt} \newline
+    • Multiplayer Mode \newline 
+    \makebox[5mm]{} - Allows users to compete against others in real-time. \\
+    \hline
+    \raggedright \textbf{Image Identification Services} & 
+    • AI Processing \newline 
+    \makebox[5mm]{} - Uses multiple AI models (GeoKnowr AI, Landmark Recognition, Region-Specific AI) to analyze images. \vspace{5pt}\newline
+    • Confidence Evaluation \newline 
+    \makebox[5mm]{} - Aggregates responses from AI models and determines the most accurate result. \vspace{-4pt}\newline
+    • Return Prediction \newline 
+    \makebox[5mm]{} - Displays the predicted location to the user. \\
+    \hline
+\end{tabular}
+
+% \noindent
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\linewidth]{state_diagram.png}
+    \caption{State Diagram}
+    \label{fig:state_diagram}
+\end{figure}
+
 % End SubSection
 
 \subsection{User Characteristics}
