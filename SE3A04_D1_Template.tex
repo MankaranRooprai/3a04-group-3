@@ -65,7 +65,7 @@
 \section{Introduction}
 \label{sec:introduction}
 % Begin Section
-This SRS will describe the software requiremnets for GeoLens, a community-driven application for identifying
+This SRS will describe the software requiremnets for \textbf{GeoLens}, a community-driven application for identifying
 locations based on images, descriptitons and discussions. This document outlines the system's overall purpose, the context for building the application,
 functional and non-functional requirements and user iteraction.
 
@@ -79,9 +79,9 @@ As the project progresses and changes, the document will provide a baseline from
 \subsection{Scope}
 \label{sub:scope}
 % Begin SubSection
-GeoLens is a community and AI driven application designed to identify locations from images. It consists of several individual software products described below.\\
+\textbf{GeoLens} is a community and AI driven application designed to identify locations from images. It consists of several individual software products described below.\\
 
-The \textbf{Forum} UI is the primary interface where users interact with GeoLens. It allows users to upload images of locations for identification, view responses, and
+The \textbf{Forum} UI is the primary interface where users interact with \textbf{GeoLens}. It allows users to upload images of locations for identification, view responses, and
 engage with the community. If the forum UI can provide ease of use and an interactive experience it will encourage community engagement and bring traffic to the
 application. The interface facilitates discussions, displays aggregated predictions, and contains gamification elements such as leaderboards. The forum UI should be accessible
 to all users, intuitive to use and respond to user requests within 100 ms. It does not perform image analysis or identification itself but serves as the user’s gateway to the platform.\\
@@ -122,6 +122,7 @@ present in the image, the Landmark Recognition software should pin point it's lo
 % Begin SubSection
 \begin{itemize}
 	\item \textbf{GeoLens:} the system being specified
+    \item \textbf{GeoKnowr:} pre trained image to coordinates model
 	\item \textbf{AI:} Aritficial Intelligence
 \end{itemize}
 % End SubSection
@@ -195,7 +196,7 @@ present in the image, the Landmark Recognition software should pin point it's lo
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-Section 2 aims to put the value of GeoLens into perspective, relating and contrasting it to other similar products that currently exist.
+Section 2 aims to put the value of \textbf{GeoLens} into perspective, relating and contrasting it to other similar products that currently exist.
 It should also provide a summary of the primary functions of the application and a description of the expected users. This should provide readers with a general understanding
 of the system, and how users are expected to intereact with it. Finally, constraints and assumptions are listed to clarify the scope of the application and the context in which it operated.\\\\
 Section 3 presents a use case digram outlining the main functionality and interactions with stakeholders.\\\\
@@ -219,11 +220,11 @@ Finally, section 5 describes the Non-Functional Requirements, focusing on how th
 \subsection{Product Perspective}
 \label{sub:product_perspective}
 
-\noindent GeoLens is a mobile game guessing app developed for the Android platform. A similar product is GeoGuessr, which allows users to guess the location of randomly given locations from a Google Street View. However, GeoLens requires a user to submit a picture of a location they wish to identify. The application will consult three specialized experts: a lightweight AI called \textbf{GeoKnowr} which is based off of GeoGuessr, a Landmark Recognition service, and a region-specific generative AI. Each expert will return a confidence level and if the confidence level meets a predefined threshold of 70\%, then that expert's response will be returned in the same order as above.\\
+\noindent \textbf{GeoLens} is a mobile game guessing app developed for the Android platform. A similar product is GeoGuessr, which allows users to guess the location of randomly given locations from a Google Street View. However, GeoLens requires a user to submit a picture of a location they wish to identify. The application will consult three specialized experts: a lightweight AI called \textbf{GeoKnowr} which is based off of GeoGuessr, a Landmark Recognition service, and a region-specific generative AI. Each expert will return a confidence level and if the confidence level meets a predefined threshold of 70\%, then that expert's response will be returned in the same order as above.\\
 
-\noindent In addition to the AI-driven location identification, GeoLens has a unique gameplay feature with competition modes, where players can play against each other individually, with real-time score tracking and leaderboards. Additionally, the product will allow users to create and modify profiles that will be used in the app. This means that a log-in and sign-up feature will be required.\\
+\noindent In addition to the AI-driven location identification, \textbf{GeoLens} has a unique gameplay feature with competition modes, where players can play against each other individually, with real-time score tracking and leaderboards. Additionally, the product will allow users to create and modify profiles that will be used in the app. This means that a log-in and sign-up feature will be required.\\
 
-\noindent The system architecture consists of multiple layers. Firstly, there is the Host DBMS layer for storing user profiles, previously submitted images, as well as game history. Secondly, there is the Orchestrator Wrapper which is responsible for managing images, managing accounts, and allowing users to engage in competition mode. Next is the external AI layer which is where the Image Identification Service module calls on to identify photos, where it calls upon a confidence evaluator, which aggregates responses from multiple AI models to determine the most accurate result. Lastly, the Figure UI layer is where the user interacts with GeoLens.\\
+\noindent The system architecture consists of multiple layers. Firstly, there is the Host DBMS layer for storing user profiles, previously submitted images, as well as game history. Secondly, there is the Orchestrator Wrapper which is responsible for managing images, managing accounts, and allowing users to engage in competition mode. Next is the external AI layer which is where the Image Identification Service module calls on to identify photos, where it calls upon a confidence evaluator, which aggregates responses from multiple AI models to determine the most accurate result. Lastly, the Figure UI layer is where the user interacts with \textbf{GeoLens}.\\
 
 \begin{figure}[h]
     \centering
@@ -1151,6 +1152,17 @@ Other assumptions that, if it fails to hold, could require a change to the requi
             \subitem - References (1.4)
 \end{itemize}
 \includegraphics[scale=0.50]{bornosignature.png}
+
+\textbf{Lam, Robert}
+\begin{itemize}
+        \item Introduction
+        \item 1.1 Purpose
+        \item 1.2 Scope
+        \item 1.3 Definitions and Acronyms
+        \item Brainstormed experts as a group:
+		    \subitem - \textbf{GeoKnowr} AI.
+\end{itemize}
+\includegraphics[scale=1]{robertsignature.png}
 
 % End Section
 
