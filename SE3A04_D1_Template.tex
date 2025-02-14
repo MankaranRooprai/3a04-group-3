@@ -46,8 +46,8 @@
     \item Bornomala, Anindita
     \item Nielsen, Claire
     \item Nesbitt, Matthew
-    \item Lam,Robert 
-    \item Rooprai,Mankaran
+    \item Lam, Robert 
+    \item Rooprai, Mankaran
 \end{itemize}
 
 \section*{IMPORTANT NOTES}
@@ -113,7 +113,7 @@ The three \textbf{Experts} are as follows:
     \end{itemize}
 \end{enumerate}
 
-The primary goal of these experts is to work cohesively to provide an accurate prediction with little delay. GeoKnowr AI aims to deliver an initial estimate
+The primary goal of these experts is to work cohesively to provide an accurate prediction with little delay. \textbf{GeoKnowr} AI aims to deliver an initial estimate
 of where an image was taken by assigning coordinates. Then the region specific AI can further refine this prediction by applying localized knowledge. If a landmark is 
 present in the image, the Landmark Recognition software should pin point it's location.
 
@@ -126,17 +126,7 @@ present in the image, the Landmark Recognition software should pin point it's lo
 \end{itemize}
 % End SubSection
 
-\subsection{References}
 \label{sub:references}
-% Begin SubSection
-\begin{itemize}
-	\item Provide a complete list of all documents referenced elsewhere in the SRS.
-	\item Identify each document by title, report number (if applicable), date, and publishing organization.
-	\item Specify the sources from which the references can be obtained.
-	\item Order this list in some sensible manner (alphabetical by author, or something else that makes more sense).
-\end{itemize}
-% End SubSection
-
 \begin{thebibliography}{99}
     \bibitem{ref1} Non-functional requirements - the University of Texas at ..., 
     \url{https://personal.utdallas.edu/~chung/SYSM6309/NFR-18-4-on-1.pdf} 
@@ -200,6 +190,7 @@ present in the image, the Landmark Recognition software should pin point it's lo
     \url{https://developer.android.com/docs/quality-guidelines/core-app-quality} 
     (accessed Feb. 8, 2025). 
 \end{thebibliography}
+% End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
@@ -228,7 +219,7 @@ Finally, section 5 describes the Non-Functional Requirements, focusing on how th
 \subsection{Product Perspective}
 \label{sub:product_perspective}
 
-\noindent GeoLens is a mobile game guessing app developed for the Android platform. A similar product is GeoGuessr, which allows users to guess the location of randomly given locations from a Google Street View. However, GeoLens requires a user to submit a picture of a location they wish to identify. The application will consult three specialized experts: a lightweight AI called GeoKnowr which is based off of GeoGuessr, a Landmark Recognition service, and a region-specific generative AI. Each expert will return a confidence level and if the confidence level meets a predefined threshold of 70\%, then that expert's response will be returned in the same order as above.\\
+\noindent GeoLens is a mobile game guessing app developed for the Android platform. A similar product is GeoGuessr, which allows users to guess the location of randomly given locations from a Google Street View. However, GeoLens requires a user to submit a picture of a location they wish to identify. The application will consult three specialized experts: a lightweight AI called \textbf{GeoKnowr} which is based off of GeoGuessr, a Landmark Recognition service, and a region-specific generative AI. Each expert will return a confidence level and if the confidence level meets a predefined threshold of 70\%, then that expert's response will be returned in the same order as above.\\
 
 \noindent In addition to the AI-driven location identification, GeoLens has a unique gameplay feature with competition modes, where players can play against each other individually, with real-time score tracking and leaderboards. Additionally, the product will allow users to create and modify profiles that will be used in the app. This means that a log-in and sign-up feature will be required.\\
 
@@ -282,7 +273,7 @@ Finally, section 5 describes the Non-Functional Requirements, focusing on how th
     \hline
     \raggedright \textbf{Image Identification Services} & 
     • AI Processing \newline 
-    \makebox[5mm]{} - Uses multiple AI models (GeoKnowr AI, Landmark Recognition, Region-Specific AI) to analyze images. \vspace{5pt}\newline
+    \makebox[5mm]{} - Uses multiple AI models (\textbf{GeoKnowr} AI, Landmark Recognition, Region-Specific AI) to analyze images. \vspace{5pt}\newline
     • Confidence Evaluation \newline 
     \makebox[5mm]{} - Aggregates responses from AI models and determines the most accurate result. \vspace{-4pt}\newline
     • Return Prediction \newline 
@@ -1139,6 +1130,7 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 		\subitem - Real-time mode.
   	\item Setup GitHub Repository for group to collaborate on document.
 \end{itemize}
+\includegraphics[scale=0.15]{mankaransignature.png}
 \includegraphics[scale=0.15]{mankaransignature.png}
 
 \textbf{Nielsen, Claire}
