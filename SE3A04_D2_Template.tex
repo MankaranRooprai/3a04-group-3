@@ -10,6 +10,7 @@
 \usepackage{fancyhdr}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
+\usepackage{float}
 %\usepackage{extarrows}
 %\usepackage{setspace}
 %------------------------------------------------------------------------------
@@ -104,20 +105,62 @@ This section should provide an overview of the overall architectural design of y
 \subsection{System Architecture}
 \label{sub:system_architecture}
 % Begin SubSection
-\begin{itemize}
-	\item Identify and explain the overall architecture of your system
-	\item Be sure to clearly state the name of the architecture you used (this is the name of the architectural pattern, not the name of your system)
-	\item Provide the reasoning and justification of the choice of architecture
-	\item Provide a structural architecture diagram showing the relationship among the subsystems (if appropriate)
-	\item List any design alternatives you considered, but eliminated (and explain why you eliminated them)
-\end{itemize}
+
+
+GeoLens uses Data-Centered Architecture, specifically the Blackboard Architecture. This style is commonly used for AI-driven and data-centric applications. In this architecture, multiple experts (knowledge sources) work collaboratively by contributing partial solutions to a shared data structure (the blackboard). The blackboard serves as a central repository, allowing various AI models to analyze and refine user-submitted images collaboratively. The Orchestrator (controller) manages this process by determining when a sufficient level of confidence has been reached before delivering a final result to the user. The system evolves dynamically as different subsystems process data and update the blackboard with new insights.\\
+
+\noindent Within the system, several subsystems are defined as follows:\\
+
+\renewcommand{\arraystretch}{1.3} % Adjust row height for better readability
+\begin{table}[h]
+    % \centering
+    \begin{tabular}{|p{4cm}|p{7cm}|p{4cm}|} 
+        \hline
+        \textbf{Subsystem} & \textbf{Purpose} & \textbf{Architectural Style} \\
+        \hline
+        \textbf{Account Manager} & Manages user authentication, account creation, profile updates, and interactions with the account database. & 
+        Repository Architecture \\
+        \hline
+        \textbf{Identification Manager} & Handles the image submission process, delegates analysis to AI experts, and processes identification results. & Blackboard Architecture \\
+        \hline
+        \textbf{Ranking Manager} & Manages user rankings based on accuracy, updates reputation scores, and retrieves ranking information. & Repository Architecture \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\noindent Subsystem relationships are defined in section 3.2 of this document.\\
+
+\noindent In addition, two databases are present in this architecture. A user database to keep track of user details, and a user ranking database to rank users on a leaderboard based on their identification results.\\
+
+\noindent The Blackboard Architecture was selected because it allows for incremental problem-solving, parallel processing, and scalability. AI experts such as General Expert AI, Regional Expert AI, and Google Maps Landmark API work independently (asynchronously) and contribute partial solutions to the shared blackboard. This ensures that predictions are refined collaboratively without requiring direct interaction between AI models and that as fresh data becomes available, the blackboard updates each of its experts with the latest data. In this case, the data-store (blackboard) is active and the experts (knowledge sources) are passive, because the data-store controls the flow of logic. Unlike the Repository Architecture, where components interact with a passive data store, the Blackboard Architecture is event-driven, meaning that knowledge sources (AI models) react dynamically to changes in the blackboard. The Orchestrator manages the process of determining which expert to call on for information. This results in more adaptive and intelligent decision-making, making it well-suited for GeoLens’s AI-driven image analysis.\\
+
+\noindent Additionally, structured data is managed using the Repository Architecture, namely for user account and ranking data. Because account actions include retrieval, updating, deletion, and insertion, this subsystem makes sense when it has access to a shared database. Software components in a pure data-centered architecture rely on a central data store rather than direct communication with one another. For systems like database management systems (DBMS), library information systems, and user authentication frameworks, where organized data consistency is really important, the repository architecture is perfect. The Repository Architecture guarantees data integrity, accessibility, and controlled alterations without needless complexity because account and ranking data depend on well-structured, transactional procedures rather than dynamic, event-driven problem-solving. \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{system_architecture.png}
+    \textbf{\caption{System Architecture}}
+    \label{fig:system_architecture}
+\end{figure}
+
+\noindent Despite being considered, alternative architectural styles were not selected. The inability of Model-View-Controller (MVC) to have incremental problem-solving or collaboratively revise AI-generated solutions made it unsuitable for handling dynamic, AI-driven reasoning. The main goal of MVC is to structure user interaction, which helps to organize UI elements but doesn't help in asynchronous AI collaboration. Since GeoLens needs a system that allows several experts to iteratively improve predictions, Blackboard is a better option.\\
+
+\noindent Pipe-and-Filter Architecture wasn't chosen either, because of its sequential processing approach, which prevents the flexible, real-time decision-making required for GeoLens. It is challenging to adapt AI processing dynamically in a Pipe-and-Filter system since input travel linearly through pipes and filters which is a synchronous process. Essentially, the next step cannot start until the current step has completed. The inflexible pipeline structure of Pipe-and-Filter would not allow for the necessary flexibility because multiple AI specialists would need to evaluate the same image concurrently and iteratively enhance the outcome.\\
+
+\noindent Lastly, the Batch Sequential Architecture was also rejected because it is intended for processing data in discrete batches rather than real-time AI decision-making. Instantaneous picture analysis and response in GeoLens is incompatible with batch sequential systems, which process massive datasets at predetermined intervals. The Blackboard Architecture, on the other hand, allows for quicker and more accurate results by allowing experts to add insights as soon as they become available.\\
+
 % End SubSection
 
 \subsection{Subsystems}
 \label{sub:subsystems}
 % Begin SubSection
- Provide a list of your subsystems, with a brief description of each. Be sure to document its purpose and relationship to other subsystems.
+ \noindent Provide a list of your subsystems, with a brief description of each. Be sure to document its purpose and relationship to other subsystems.\\
 
+ \noindent The Account Manager subsystem is responsible for all user-related actions, such as login, account creation, and profile modifications. It interacts with the User DB to securely store and retrieve user information. Since user data must be structured, persistent, and easily retrievable, the Repository Architecture is the most appropriate choice for this subsystem. \\
+
+\noindent The Identification Manager subsystem oversees the image analysis process. When a user submits an image, this subsystem sends it to the Orchestrator (controller), which in turn sends it to multiple AI models (GeoKnowr Expert AI, Ladnmark Recognizer Expert AI, and Regional Expert API) for evaluation. Each AI component contributes its results to the Blackboard, where the Orchestrator refines predictions based on confidence scores. The Blackboard Architecture allows for collaboration among AI models, ensuring accurate and efficient identification. \\
+
+\noindent The Ranking Manager subsystem tracks user rankings and reputation scores. When users submit guesses, their accuracy is assessed, and ranking adjustments are made accordingly. The Ranking Manager retrieves and updates user rankings from the User Ranking DB, ensuring that reputation data remains consistent. This subsystem follows the Repository Architecture, as ranking data needs to be stored persistently and accessed efficiently.
 % End SubSection
 
 % End Section
