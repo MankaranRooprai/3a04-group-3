@@ -164,7 +164,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 
 \noindent The Identification Manager subsystem oversees the image analysis process. When a user submits an image, this subsystem sends it to the Orchestrator (controller), which in turn sends it to multiple AI models (GeoKnowr Expert AI, Ladnmark Recognizer Expert AI, and Regional Expert API) for evaluation. Each AI component contributes its results to the Blackboard, where the Orchestrator refines predictions based on confidence scores. The Blackboard Architecture allows for collaboration among AI models, ensuring accurate and efficient identification. \\
 
-\noindent The Ranking Manager subsystem tracks user rankings and reputation scores. When users submit guesses, their accuracy is assessed, and ranking adjustments are made accordingly. The Ranking Manager retrieves and updates user rankings from the User Ranking DB, ensuring that reputation data remains consistent. This subsystem follows the Repository Architecture, as ranking data needs to be stored persistently and accessed efficiently.
+\noindent The Ranking Manager subsystem tracks user rankings and reputation scores. When users submit guesses, their accuracy is assessed by calculating the euclidean distance from their guess to how far they are from the actual location. The smaller the distance, the better, and the ranking adjustments are made accordingly. The Ranking Manager retrieves and updates user rankings from the User Ranking DB, ensuring that reputation data remains consistent. This subsystem follows the Repository Architecture, as ranking data needs to be stored persistently and accessed efficiently.
 % End SubSection
 
 % End Section
@@ -175,12 +175,14 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Make Guess} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Make Guess (Boundary)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Handles click-event of "Guess" button & \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -188,12 +190,14 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Rank Reduction} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Rank Reduction (Boundary)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Displays the reduction in rank after guessing a location & \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -201,12 +205,14 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Rank Increase} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Rank Increase (Boundary)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Displays the increase in rank after guessing a location & \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -214,12 +220,18 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Ranking Manager} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Ranking Manager (Control)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows View Rank & View Rank \\
+		Knows Make Guess & Make Guess \\
+		Knows Rank Reduction & Rank Reduction \\
+		Knows Rank Increase & Rank Increase \\
+		Knows User Rank Info & User Rank Info \\
+		Knows Submitted Pictures & Submitted Pictures \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -227,12 +239,13 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} User Information} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} User Information (Entity)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Account DB & Account DB \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -240,12 +253,14 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} User Rank Info} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} User Rank Info (Entity)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Knows Account DB & Account DB \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -253,104 +268,140 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Submitted Pictures} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Submitted Pictures (Entity)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Knows Picture Info & Picture Info \\
+		Knows Identification Manager & Identification Manager \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 
+
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Account Database} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		\vspace{1in} & \\
+		\hline 
+            Knows Account Manager & Account Manager\\ 
+            Knows User Rank Info & User Rank Info \\
+            Knows User Info & User Info       
+		\vspace{1in} \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Picture Info} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Submitted Pictures & Submitted Pictures 
+		\vspace{1in} \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Account Manager} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Login & Login \\
+            Knows Create Account & Create Account \\
+            Knows Edit Account & Edit Account \\
+            Knows View Account & View Account \\
+            Knows Identification Manager & Identification Manager \\
+            Knows Account DB & Account DB \\
+            Handles "Login" click event & \\
+            Handles "Create Account" click event & \\
+            Handles "Edit Account" click event & \\
+            Handles "View Account" click event & \\
+		\vspace{1cm} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Identification Manager} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Submit Picture & Submit Picture \\
+            Knows Enter Know Into & Enter Known Info \\
+            Knows Display Answer & Display Answer \\
+            Knows Display Rejection & Display Rejection \\
+            Knows Landmark Recognizer AI & Landmark Recognizer AI \\
+            Knows Regional Expert AI & Regional Expert AI \\
+            Knows GeoKnown Expert AI & GeoKnown Expert AI \\
+            Knows Submitted Pictures & Submitted Pictures \\
+            Handles "Submit Picture" click event & \\
+            Handles "Enter Known Info" click event & \\
+            Handles "Display Answer" event & \\
+            Handles "Display Rejection" event & \\
+		\vspace{1cm} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} General Expert AI} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} GeoKnowr Expert AI} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Identification Manager & Identification Manager \\
+            Processes image and returns an answer
+		\vspace{1cm} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Regional Expert AI} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Identification Manager & Identification Manager \\
+            Processes image and returns an answer
+		\vspace{1cm} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Google Maps Landmark API} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Identification Manager & Identification Manager \\
+            Processes image and returns an answer
+		\vspace{1cm} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -486,13 +537,9 @@ Include a Division of Labour sheet which indicates the contributions of each tea
 % Begin Section
 \textbf{Nesbitt, Matthew:}
 \begin{itemize}
-	\item 2.3 User Characteristics
-	\item 2.4 Constraints
-	\item 2.5 Assumptions and Dependencies
-	\item 2.6 Apportioning of Requirements
-	\item 3 Use Case Diagram
-	\item Brainstormed creative idea as group:
-		\subitem - Gamified guessing system.
+	\item 2 Analysis Class Diagram
+	\item Brainstormed ideas as group:
+		\subitem - Ranking system internal structure.
 \end{itemize}
 \includegraphics[scale=0.15]{mattsignature.jpg}
 
@@ -510,33 +557,44 @@ Include a Division of Labour sheet which indicates the contributions of each tea
 
 \textbf{Rooprai, Mankaran:}
 \begin{itemize}
-	\item 2.1 Product Perspective (including System Diagram)
-	\item 2.2 Product Functions (including State Diagram)
-	\item Brainstormed experts as a group:
-		\subitem - Region-Specific AI.
-	\item Brainstormed innovative feature as a group:
-		\subitem - Real-time mode.
-  	\item Setup GitHub Repository for group to collaborate on document.
+	\item 3.1 System Architecture
+	\item 3.2 Subsystems
+	\item Figure 2. System Architecture
+	\item Created subsytems table in section 3.1
 \end{itemize}
 \includegraphics[scale=0.15]{mankaransignature.png}
 
 \textbf{Nielsen, Claire}
 \begin{itemize}
-        \item 4 Highlights of Functional Requirements
-            \subitem - Main Business Events
-            \subitem - Viewpoints
-            \subitem - Interpretation
+        \item Redid D1. Business Events
+		\item CRC Cards
+			\subitem Account Database
+			\subitem Picture Info
+			\subitem Account Manager
+			\subitem Identification Manager
+			\subitem GeoKnowr Expert AI
+			\subitem Regional Expert AI
+			\subitem Google Maps Landmark API
 \end{itemize}
 \includegraphics[scale=0.15]{clairesignature.jpg}
 
 \textbf{Bornomala, Anindita}
 \begin{itemize}
-        \item 5 Non-Functional Requirements
-            \subitem - Look and Feel Requirements (5.1)
-            \subitem - Usability and Humanity Requirements (5.2)
-            \subitem - Performance Requirements (5.3)
-            \subitem - Operational and Environmental Requirements (5.4)
-            \subitem - References (1.4)
+        \item Discussed architecture choice and style with group during tutorial
+        \item Discussed and delegated roles among group members to ensure completion of deliverable
+        \item Created page (insert page nums) CRC Cards
+		\item Formatted CRC Cards in LaTeX
+		\item Worked on and finished Section 4 CRCs as shown below
+            \subitem - Finished CRC View Rank
+            \subitem - Finished CRC Make Guess
+            \subitem - Finished CRC Rank Reduction
+            \subitem - Finished CRC Rank Increase
+            \subitem - Finished CRC Ranking Manager
+			\subitem - Finished CRC User Information
+			\subitem - Finished CRC User Rank Info
+			\subitem - Finished CRC Submitted Pictures
+		\item Make edits to Section 4 CRC Cards for formatting and consistency
+
 \end{itemize}
 \includegraphics[scale=0.50]{bornosignature.png}
 
