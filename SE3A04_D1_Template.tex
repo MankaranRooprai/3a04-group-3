@@ -400,224 +400,323 @@ Other assumptions that, if it fails to hold, could require a change to the requi
 \section{Highlights of Functional Requirements}
 \label{sec:functional_requirements}
 % Begin Section
+
+\noindent {\bf Main Business Events:} \\
 \begin{itemize}
-	\item Specify all use cases (or other scenarios triggered by other events), organized by Business Event. 
-	\item For each Business Event, show the scenario from every Viewpoint. You should have the same set of Viewpoints across all Business Events. If a Viewpoint doesn't participate, write N/A so we know you considered it still. You can choose how to present this - keep in mind it should be easy to follow. 
-	\item At the end, combine them all into a Global Scenario.
-	%\item Specify the "use cases" (or other triggering events) organized by Business Event. (The Global Scenario is what you might think of as a use case). Be sure to consider Business Events that aren't just triggered by users with goals (e.g. something happens in the environment that your system needs to respond to)
-	\item Your focus should be on what the system needs to do, not how to do it. Specify it in enough detail that it clearly specifies what needs to be accomplished, but not so detailed that you start programming or making design decisions.
-	\item Keep the length of each use case (Global Scenario) manageable. If it's getting too long, split into sub-cases.
-	\item You are \emph{not} specifying a complete and consistent set of functional requirements here. (i.e. you are providing them in the form of use cases/global scenarios, not a refined list). For the purpose of this project, you do not need to reduce them to a list; the global scenarios format is all you need.
-	\item Red text below is just to highlight where you need to insert a scenario - don't actually write it all in red.
+    \item BE1: User Registers an Account 
+    \item BE2: User Logs In 
+    \item BE3: User Submits a Picture (not region specific)
+    \item BE4: User Submits a Picture (region specific)
+    \item BE5: User Submits a Picture (landmark) \\
+    
 \end{itemize}
 
-\noindent {\bf Main Business Events:} List out all the main business events you are presenting. If you sub-divided into smaller ones, you don't need to include the smaller ones in this list.\\
-
-\noindent {\bf Viewpoints:} List out all the viewpoints you will be considering.\\
+\noindent {\bf Viewpoints:} \\
+\begin{itemize}
+    \item VP1: User
+    \item VP2: Customer Support
+    \item VP3: Experts
+    \item VP4: Finance 
+    \item VP5: Advertisers\\
+\end{itemize}
 
 \noindent {\bf Interpretation:} Specify any liberties you took in interpreting business events, if necessary.\\
 
 \begin{enumerate}[{\bf BE1.}]
+    \item User Registers an Account \\ 
+    Pre-Condition: The user must have the app installed on a compatible device with internet connection and not have an existing account. 
+    \begin{enumerate}[{\bf VP1.}]
+        \item User \\
+        Main Success Scenario
+            \begin{enumerate}[{1.}]
+                \item User opens the app on their mobile device. 
+                \item The app prompts the user to enter their login information or create an account. 
+                \item User selects the option to create an account. 
+                \item The app prompts the user with the necessary fields to fill in for registration. 
+                \item User enters relevant details.
+                \item User presses "Register". 
+                \item The app verifies registration information. 
+                \item The user is registered and logged in. 
+            \end{enumerate}
+            Secondary Scenario \\
+            7.i. System fails to verify registration information. Retry from step 4. \\
+
+        \item Customer Support \\
+            7.i. On failure, system prompts user with the option to contact customer support before retrying. 
+
+        \item Experts\\
+        NA
+        \item Finance \\
+        NA
+        \item Advertisers\\
+        NA \\
+    \end{enumerate}
+        {\bf Global Scenario:}\\
+        Pre-Condition: The user must have the app installed on a compatible device with internet connection and not have an existing account.
+        \begin{enumerate}[{1.}]
+            \item The user opens the app on their mobile device. 
+            \item The app prompts the user to enter their login information or create an account. 
+            \item The user selects the option to create an account. 
+            \item The app prompts the user with the necessary fields to fill in for registration. 
+            \item The user enters relevant details.
+            \item The user presses "Register". 
+            \item The app verifies registration information. \\ 7.i. System fails to verify registration information. On failure, system prompts user with the option to contact customer support before retrying. Retry from step 4. 
+            \item The user is registered and logged in. 
+        \end{enumerate}
+
+    \item User Logs In \\
+    Pre-Condition: The user must have the app installed on a compatible device with internet connection and have an existing account.
+    \begin{enumerate}[{\bf VP1. }]
+        \item User
+        \begin{enumerate}[{1. }]
+            \item The user opens the app on their mobile device. 
+            \item The app prompts the user to enter their login information or create an account.
+            \item The user enters their login information and presses "Login"
+            \item The app verifies the login information.
+            \item The user is logged in. 
+        \end{enumerate}
+        Secondary Scenario \\
+        4.i The app fails to verify login information. Retry from step 3. 
+        
+        \item Customer Support \\
+        4.i On failure, system prompts user with the option to contact customer support before
+retrying. \\
+        \item Experts\\
+        NA
+        \item Finance \\
+        NA
+        \item Advertisers\\
+        NA \\
+    \end{enumerate}
+    {\bf Global Scenario:}\\
+    Pre-Condition: The user must have the app installed on a compatible device with internet connection and have an existing account.
+    \begin{enumerate}[{1.}]
+        \item The user opens the app on their mobile device. 
+        \item The app prompts the user to enter their login information or create an account.
+        \item The user enters their login information and presses "Login"
+        \item The app verifies the login information. \\ 7.i. System fails to verify login information. On failure, system prompts user with the option to contact customer support before retrying. Retry from step 4. \\
+        \item The user is logged in.  
+    \end{enumerate}
+
 	\item User Submits a Picture (not region specific)
-        \\ Pre-Condition: The user must have an account and a working app with internet connection. 
+        \\ Pre-Condition: The user must have the app installed on a compatible device with internet connection and have an existing account. 
 		\begin{enumerate}[{\bf VP1.}]
 			\item User \\
 				Main Success Scenario
                     \begin{enumerate}[{1.}]
-                        \item User opens the app on their mobile device.
-                        \item The app prompts the user to enter their login information.
-                        \item User enters their login information.
-                        \item System authenticates the user. 
-                        \item System gives user options to choose from (Submit a Picture, Submit a Landmark). 
-                        \item User chooses “Submit a Picture”. 
-                        \item Systems prompts the user to upload a picture within the resolution and format requirements.
-                        \item User uploads picture.
-                        \item System prompts the user to include a general region where the picture is from. 
-                        \item User does not input a region. 
-                        \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
-                        \item User adds comments.
-                        \item User submits the post.
-                        \item System sends data to the general AI.
-                        \item The general AI returns an approximate location, which is passed to the region specific AI.
-                        \item The region-specific AI returns an answer. 
-                        \item Answer is displayed to the user. \\
+                        \item The user opens the app on their mobile device.
+                        \item The app prompts the user to enter their login information or create an account.
+                        \item The user enters their login information.
+                        \item The app verifies the login information.
+                        \item The user is logged in.
+                        \item The app gives user options to choose from (Submit a Picture, Submit a Landmark). 
+                        \item The user chooses “Submit a Picture”. 
+                        \item The app prompts the user to upload a picture within the resolution and format requirements.
+                        \item The user uploads picture.
+                        \item The app prompts the user to include a general region where the picture is from. 
+                        \item The user does not input a region. 
+                        \item The app prompts the user to include comments on where the image is from (Instagram, family photo, etc.) 
+                        \item The user adds comments.
+                        \item The user presses "Submit Post"
+                        \item The app sends data to the experts.
+                        \item The experts return an answer. 
+                        \item The answer is displayed to the user. \\
                     \end{enumerate}
+                    
                     Secondary Scenario \\
-                    4.i. System fails to authenticate user. Login failed, retry form step 3. \\
-                    8.i. User uploads a photo outside quality/format requirements. Retry from step 8.\\ 
-                    14.i. System fails to send post to AI. \\
-                    14.ii. The post is not sent, but the data is saved. Retry from step 13. \\
-                    14.ii. The post is not sent and information is not saved. Retry from step 7. \\
-                    15.i. General AI cannot return an answer. Error page is displayed. 
-                    16.i. The region-specific AI cannot return an answer. The general answer returned by the general AI is returned to the user.
+                    4.i. The app fails to verify login information. Retry form step 3. \\
+                    9.i. The user uploads a photo outside quality/format requirements. Retry from step 9.\\ 
+                    15.i. The app fails to send post to experts. \\
+                    15.ii. The post is not sent, but the data is saved. Retry from step 14. \\
+                    15.ii. The post is not sent and information is not saved. Retry from step 8. \\
+                    16.i. General AI cannot return an answer. Error page is displayed. \\
+                    17.i. The region-specific AI cannot return an answer. The general answer returned by the general AI is returned to the user.
                     
 			\item Customer Support \\
-				4.i. On failure, system prompts user with contact          information for Customer Support. \\
-                    8.i. On failure, system displays image parameters and prompts user with contact information for Customer Support. \\
-                    14.i. System displays an error page with contact information for Customer Support. \\
-	            14.ii. System prompts user to retry send, or contact       Customer Support. \\
-	            14.ii. System prompts user to re-input image and data,     or contact Customer Support. \\
+				4.i. On failure, system prompts user with contact information for Customer Support. \\
+                8.i. On failure, system displays image parameters and prompts user with contact information for Customer Support. \\
+                14.i. The app displays an error page with contact information for Customer Support. \\
+	            14.ii. The app prompts user to retry send, or contact Customer Support. \\
+	            14.ii. The app prompts user to re-input image and data, or contact Customer Support. \\
+
+            \item Experts\\
+                15.i. The app sends the image and details to the general AI. 
+                15.ii The general AI returns an approximate location, which is passed to the region-specific AI. \\
+                15.iii The region-specific AI returns a more precise location. \\
+                15.iv. The answer is passed to the user.
+            
+            \item Finance \\
+            NA
+            \item Advertisers\\
+            NA \\
 		\end{enumerate}
 		{\bf Global Scenario:}\\
             Pre-Condition: The user must have an account and a working app with internet connection. 
 		      \begin{enumerate}[{1.}]
-                    \item User opens the app on their mobile device. 
-                    \item The app prompts the user to enter their login information.
-                    \item User enters their login information.
-                    \item System authenticates the user. 
-                    \item System gives user options to choose from (Submit a Picture, Submit a Landmark).  
-                    \item User chooses “Submit a Picture”. 
-                    \item Systems prompts the user to upload a picture within the resolution and format requirements.
-                    \item User uploads picture.
-                    \item System prompts the user to include a general region where the picture is from. 
-                    \item User does not input a region. 
-                    \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
-                    \item User adds comments.
-                    \item User submits the post.
-                    \item System sends data to the general AI.
-                    \item The general AI returns an approximate location, which is passed to the region specific AI.
-                    \item The region-specific AI returns an answer. 
-                    \item Answer is displayed to the user. \\
+                    \item The user opens the app on their mobile device.
+                        \item The app prompts the user to enter their login information or create an account.
+                        \item The user enters their login information.
+                        \item The app verifies the login information. \\ 4.i. The app fails to verify login information. On failure, system prompts user with contact information for Customer Support. Retry from step 3.
+                        \item The user is logged in.
+                        \item The app gives user options to choose from (Submit a Picture, Submit a Landmark). 
+                        \item The user chooses “Submit a Picture”. 
+                        \item The app prompts the user to upload a picture within the resolution and format requirements. \\ 9.i. The user uploads a photo outside quality/format requirements. Retry from step 9.\\
+                        \item The user uploads picture.
+                        \item The app prompts the user to include a general region where the picture is from. 
+                        \item The user does not input a region. 
+                        \item The app prompts the user to include comments on where the image is from (Instagram, family photo, etc.) 
+                        \item The user adds comments.
+                        \item The user presses "Submit Post"
+                        \item The app sends data to the experts. \\ 15.i. On failure, the app prompts user with contact information for Customer Support. If data was saved, retry from step 14. If data was not saved, retry from step 8. 
+                        \item The app sends the image and details to the general AI. 
+                        \item The general AI returns an approximate location, which is passed to the region-specific AI. \\ 17.i. On failure, the app prompts user with contact information for Customer Support. Error page is displayed to the user, retry from step 8. 
+                        \item The region-specific AI returns a more precise location. \\ 18.i. On failure, the app prompts user with contact information for Customer Support. Error page is displayed to the user, retry from step 8.
+                        \item The answer is displayed to the user. 
                 \end{enumerate}
-                    Secondary Scenario \\
-                    4.i. System fails to authenticate the user. 
-                    System prompts user with contact information for Customer Support. User can retry from step 3. \\
-                    8.i. User uploads a photo outside quality/format requirements. System displays image parameters. System prompts user with contact information for Customer Support.User can retry from step 8. \\
-                    14.i. System fails to send post to the forum. \\
-	            14.ii. 	The post is not sent, but the data is saved. \\
-                    System prompts user to contact Customer Support. User can retry from step 13. \\
-	            14.ii. 	The post is not sent and information is not        saved.\\ 
-                    System prompts user to contact Customer Support. User can retry from step 7. \\
-                    15.i. General AI cannot return an answer. Error page is displayed. \\ 
-                    16.i. The region-specific AI cannot return an answer. The general answer returned by the general AI is returned to the user.\\
+                    
 	\item User Submits a Picture (region specific)
-	\begin{enumerate}[{\bf VP1.}]
-		\item User \\
-		Main Success Scenario
-                    \begin{enumerate}[{1.}]
-                        \item User opens the app on their mobile device.
-                        \item The app prompts the user to enter their login information.
-                        \item User enters their login information.
-                        \item System authenticates the user. 
-                        \item System gives user options to choose from (Submit a Picture, Submit a Landmark). 
-                        \item User chooses “Submit a Picture”. 
-                        \item Systems prompts the user to upload a picture within the resolution and format requirements.
-                        \item User uploads picture.
-                        \item System prompts the user to include a general region where the picture is from. 
-                        \item User inputs a region. 
-                        \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
-                        \item User adds comments.
-                        \item User submits the post.
-                        \item System sends data to the appropriate region-specific AI. 
-                        \item The region-specific AI returns an answer. 
-                        \item Answer is displayed to the user. \\
-                    \end{enumerate}
-                    Secondary Scenario \\
-                    4.i. System fails to authenticate user. Login failed, retry form step 3. \\
-                    8.i. User uploads a photo outside quality/format requirements. Retry from step 8.\\ 
-                    14.i. System fails to send post to AI. \\
-                    14.ii. The post is not sent, but the data is saved. Retry from step 13. \\
-                    14.ii. The post is not sent and information is not saved. Retry from step 7. \\
-                    15.i. The region-specific AI cannot return an answer. Error page is displayed. \\
-			\item Customer Support \\
-				4.i. On failure, system prompts user with contact          information for Customer Support. \\
-                    8.i. On failure, system displays image parameters and prompts user with contact information for Customer Support. \\
-                    14.i. System displays an error page with contact information for Customer Support. \\
-	            14.ii. System prompts user to retry send, or contact       Customer Support. \\
-	            14.ii. System prompts user to re-input image and data,     or contact Customer Support. \\
-		\end{enumerate}
-		{\bf Global Scenario:}\\
-            Pre-Condition: The user must have an account and a working app with internet connection. 
-		      \begin{enumerate}[{1.}]
-                    \item User opens the app on their mobile device. 
-                    \item The app prompts the user to enter their login information.
-                    \item User enters their login information.
-                    \item System authenticates the user. 
-                    \item System gives user options to choose from (Submit a Picture, Submit a Landmark).  
-                    \item User chooses “Submit a Picture”. 
-                    \item Systems prompts the user to upload a picture within the resolution and format requirements.
-                    \item User uploads picture.
-                    \item System prompts the user to include a general region where the picture is from. 
-                    \item User inputs a region. 
-                    \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
-                    \item User adds comments.
-                    \item User submits the post.
-                    \item System sends data to the appropriate region-specific AI. 
-                    \item The region-specific AI returns an answer. 
-                    \item Answer is displayed to the user. \\
-                \end{enumerate}
-                    Secondary Scenario \\
-                    4.i. System fails to authenticate the user. 
-                    System prompts user with contact information for Customer Support. User can retry from step 3. \\
-                    8.i. User uploads a photo outside quality/format requirements. System displays image parameters. System prompts user with contact information for Customer Support.User can retry from step 8. \\
-                    14.i. System fails to send post to the forum. \\
-	            14.ii. 	The post is not sent, but the data is saved. \\
-                    System prompts user to contact Customer Support. User can retry from step 13. \\
-	            14.ii. 	The post is not sent and information is not        saved.\\ 
-                    System prompts user to contact Customer Support. User can retry from step 7. \\
-                    15.i The region-specific AI cannot return an answer. Error page is displayed. \\
-
-		\item User Submits a Landmark
+        \\ Pre-Condition: The user must have the app installed on a compatible device with internet connection and have an existing account. 
 		\begin{enumerate}[{\bf VP1.}]
-		\item User \\
-		Main Success Scenario
+			\item User \\
+				Main Success Scenario
                     \begin{enumerate}[{1.}]
-                        \item User opens the app on their mobile device.
-                        \item The app prompts the user to enter their login information.
-                        \item User enters their login information.
-                        \item System authenticates the user. 
-                        \item System gives user options to choose from (Submit a Picture, Submit a Landmark). 
-                        \item User chooses “Submit a Landmark”. 
-                        \item Systems prompts the user to upload a picture within the resolution and format requirements.
-                        \item User uploads picture.
-                        \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
-                        \item User adds comments.
-                        \item User submits the post.
-                        \item System sends data to the landmark-focused AI. 
-                        \item The landmark-focused AI returns an answer. 
-                        \item Answer is displayed to the user. \\
+                        \item The user opens the app on their mobile device.
+                        \item The app prompts the user to enter their login information or create an account.
+                        \item The user enters their login information.
+                        \item The app verifies the login information.
+                        \item The user is logged in.
+                        \item The app gives user options to choose from (Submit a Picture, Submit a Landmark). 
+                        \item The user chooses “Submit a Picture”. 
+                        \item The app prompts the user to upload a picture within the resolution and format requirements.
+                        \item The user uploads picture.
+                        \item The app prompts the user to include a general region where the picture is from. 
+                        \item The user inputs a region. 
+                        \item The app prompts the user to include comments on where the image is from (Instagram, family photo, etc.) 
+                        \item The user adds comments.
+                        \item The user presses "Submit Post"
+                        \item The app sends data to the experts.
+                        \item The experts return an answer. 
+                        \item The answer is displayed to the user. \\
                     \end{enumerate}
+                    
                     Secondary Scenario \\
-                    4.i. System fails to authenticate user. Login failed, retry form step 3. \\
-                    8.i. User uploads a photo outside quality/format requirements. Retry from step 8.\\ 
-                    12.i. System fails to send post to AI. \\
-                    12.ii. The post is not sent, but the data is saved. Retry from step 11. \\
-                    12.ii. The post is not sent and information is not saved. Retry from step 7. \\
-                    13.i. The landmark-focused AI cannot return an answer. Error page is displayed. \\
+                    4.i. The app fails to verify login information. Retry form step 3. \\
+                    9.i. The user uploads a photo outside quality/format requirements. Retry from step 9.\\ 
+                    15.i. The app fails to send post to experts. \\
+                    15.ii. The post is not sent, but the data is saved. Retry from step 14. \\
+                    15.ii. The post is not sent and information is not saved. Retry from step 8. \\
+                    16.i. General AI cannot return an answer. Error page is displayed. \\
+                    17.i. The region-specific AI cannot return an answer. The general answer returned by the general AI is returned to the user.
+                    
 			\item Customer Support \\
-				4.i. On failure, system prompts user with contact          information for Customer Support. \\
-                    8.i. On failure, system displays image parameters and prompts user with contact information for Customer Support. \\
-                    12.i. System displays an error page with contact information for Customer Support. \\
-	            12.ii. System prompts user to retry send, or contact       Customer Support. \\
-	            12.ii. System prompts user to re-input image and data,     or contact Customer Support. \\ 
+				4.i. On failure, system prompts user with contact information for Customer Support. \\
+                8.i. On failure, system displays image parameters and prompts user with contact information for Customer Support. \\
+                14.i. The app displays an error page with contact information for Customer Support. \\
+	            14.ii. The app prompts user to retry send, or contact Customer Support. \\
+	            14.ii. The app prompts user to re-input image and data, or contact Customer Support. \\
+
+            \item Experts\\
+                15.i. The app sends the image and details to the region-specific AI. 
+                15.ii. The region-specific AI returns a more precise location. \\
+                15.iii. The answer is passed to the user.
+            
+            \item Finance \\
+            NA
+            \item Advertisers\\
+            NA \\
+		\end{enumerate}
+        
+		{\bf Global Scenario:}\\
+            Pre-Condition: The user must have an account and a working app with internet connection. 
+		      \begin{enumerate}[{1.}]
+                    \item The user opens the app on their mobile device.
+                        \item The app prompts the user to enter their login information or create an account.
+                        \item The user enters their login information.
+                        \item The app verifies the login information. \\ 4.i. The app fails to verify login information. On failure, system prompts user with contact information for Customer Support. Retry from step 3.
+                        \item The user is logged in.
+                        \item The app gives user options to choose from (Submit a Picture, Submit a Landmark). 
+                        \item The user chooses “Submit a Picture”. 
+                        \item The app prompts the user to upload a picture within the resolution and format requirements. \\ 9.i. The user uploads a photo outside quality/format requirements. Retry from step 9.\\
+                        \item The user uploads picture.
+                        \item The app prompts the user to include a general region where the picture is from. 
+                        \item The user does inputs a region. 
+                        \item The app prompts the user to include comments on where the image is from (Instagram, family photo, etc.) 
+                        \item The user adds comments.
+                        \item The user presses "Submit Post"
+                        \item The app sends data to the experts. \\ 15.i. On failure, the app prompts user with contact information for Customer Support. If data was saved, retry from step 14. If data was not saved, retry from step 8. 
+                        \item The app sends the image and details to the region-specific AI. 
+                        \item The region-specific AI returns a more precise location. \\ 17.i. On failure, the app prompts user with contact information for Customer Support. Error page is displayed to the user, retry from step 8.
+                        \item The answer is displayed to the user. 
+                \end{enumerate}
+                
+		\item User Submits a Picture (Landmark)
+        \\ Pre-Condition: The user must have the app installed on a compatible device with internet connection and have an existing account. 
+		\begin{enumerate}[{\bf VP1.}]
+			\item User \\
+				Main Success Scenario
+                    \begin{enumerate}[{1.}]
+                        \item The user opens the app on their mobile device.
+                        \item The app prompts the user to enter their login information or create an account.
+                        \item The user enters their login information.
+                        \item The app verifies the login information.
+                        \item The user is logged in.
+                        \item The app gives user options to choose from (Submit a Picture, Submit a Landmark). 
+                        \item The user chooses “Submit a Landmark”. 
+                        \item The app prompts the user to upload a picture within the resolution and format requirements.
+                        \item The user uploads picture.
+                        \item The app prompts the user to include comments on where the image is from (Instagram, family photo, etc.) 
+                        \item The user adds comments.
+                        \item The user presses "Submit Post"
+                        \item The app sends data to the experts.
+                        \item The experts return an answer. 
+                        \item The answer is displayed to the user. \\
+                    \end{enumerate}
+                    
+                    Secondary Scenario \\
+                    4.i. The app fails to verify login information. Retry form step 3. \\
+                    9.i. The user uploads a photo outside quality/format requirements. Retry from step 9.\\ 
+                    13.i. The app fails to send post to experts. \\
+                    13.ii. The post is not sent, but the data is saved. Retry from step 14. \\
+                    13.ii. The post is not sent and information is not saved. Retry from step 8. \\
+                    14.i. Landmark AI cannot return an answer. Error page is displayed. \\
+                    
+			\item Customer Support \\
+				4.i. On failure, system prompts user with contact information for Customer Support. \\
+                9.i. On failure, system displays image parameters and prompts user with contact information for Customer Support. \\
+                13.i. The app displays an error page with contact information for Customer Support. \\
+	            13.ii. The app prompts user to retry send, or contact Customer Support. \\
+	            13.ii. The app prompts user to re-input image and data, or contact Customer Support. \\
+
+            \item Experts\\
+                15.i. The app sends the image and details to the Landmark AI. 
+                15.ii The Landmark AI returns an answer. \\
+                15.iii. The answer is passed to the user.
+            
+            \item Finance \\
+            NA
+            \item Advertisers\\
+            NA \\
 		\end{enumerate}
 		{\bf Global Scenario:}\\
             Pre-Condition: The user must have an account and a working app with internet connection. 
 		      \begin{enumerate}[{1.}]
-                    \item User opens the app on their mobile device. 
-                    \item The app prompts the user to enter their login information.
-                    \item User enters their login information.
-                    \item System authenticates the user. 
-                    \item System gives user options to choose from (Submit a Picture, Submit a Landmark).  
-                    \item User chooses “Submit a Landmark”. 
-                    \item Systems prompts the user to upload a picture within the resolution and format requirements.
-                    \item User uploads picture.
-                    \item System prompts the user to include comments on where the image is from (Instagram, family photo, etc). 
-                    \item User adds comments.
-                    \item User submits the post.
-                    \item System sends data to the landmark-focused AI. 
+                    \item The user opens the app on their mobile device.
+                        \item The app prompts the user to enter their login information or create an account.
+                        \item The user enters their login information.
+                        \item The app verifies the login information. \\ 4.i. The app fails to verify login information. On failure, system prompts user with contact information for Customer Support. Retry from step 3.
+                        \item The user is logged in.
+                        \item The app gives user options to choose from (Submit a Picture, Submit a Landmark). 
+                        \item The user chooses “Submit a Landmark”. 
+                        \item The app prompts the user to upload a picture within the resolution and format requirements. \\ 9.i. The user uploads a photo outside quality/format requirements. Retry from step 9.\\
+                        \item The user uploads picture.
+                        \item The app prompts the user to include comments on where the image is from (Instagram, family photo, etc.) 
+                        \item The user adds comments.
+                        \item The user presses "Submit Post"
+                        \item The app sends data to the experts. \\ 15.i. On failure, the app prompts user with contact information for Customer Support. If data was saved, retry from step 14. If data was not saved, retry from step 8. 
+                        15.i. The app sends the image and details to the Landmark AI. 
+                        \item The Landmark AI returns an answer. \\ 18.i. On failure, the app prompts user with contact information for Customer Support. Error page is displayed to the user, retry from step 8.
+                        \item The answer is displayed to the user. 
                 \end{enumerate}
-                    Secondary Scenario \\
-                    4.i. System fails to authenticate the user. 
-                    System prompts user with contact information for Customer Support. User can retry from step 3. \\
-                    8.i. User uploads a photo outside quality/format requirements. System displays image parameters. System prompts user with contact information for Customer Support.User can retry from step 8. \\
-                    12.i. System fails to send post to the forum. \\
-	            12.ii. 	The post is not sent, but the data is saved. \\
-                    System prompts user to contact Customer Support. User can retry from step 11. \\
-	            12.ii. 	The post is not sent and information is not        saved.\\ 
-                    System prompts user to contact Customer Support. User can retry from step 7. \\
-                    13.i. The landmark-focused AI cannot return an answer. Error page is displayed. \\
-
 	\end{enumerate}
 %End Section
 
