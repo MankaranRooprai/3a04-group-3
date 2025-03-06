@@ -283,91 +283,123 @@ This section should contain all of your CRC cards.
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Account Database)} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Account Database} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		\vspace{1in} & \\
+		\hline 
+            Knows Account Manager & Account Manager\\ 
+            Knows User Rank Info & User Rank Info \\
+            Knows User Info & User Info       
+		\vspace{1in} \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Picture Info} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Submitted Pictures & Submitted Pictures 
+		\vspace{1in} \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Account Manager} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Login & Login \\
+            Knows Create Account & Create Account \\
+            Knows Edit Account & Edit Account \\
+            Knows View Account & View Account \\
+            Knows Identification Manager & Identification Manager \\
+            Knows Account DB & Account DB \\
+            Handles "Login" click event & \\
+            Handles "Create Account" click event & \\
+            Handles "Edit Account" click event & \\
+            Handles "View Account" click event & \\
+		\vspace{1cm} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Identification Manager} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Submit Picture & Submit Picture \\
+            Knows Enter Know Into & Enter Known Info \\
+            Knows Display Answer & Display Answer \\
+            Knows Display Rejection & Display Rejection \\
+            Knows Landmark Recognizer AI & Landmark Recognizer AI \\
+            Knows Regional Expert AI & Regional Expert AI \\
+            Knows GeoKnown Expert AI & GeoKnown Expert AI \\
+            Knows Submitted Pictures & Submitted Pictures \\
+            Handles "Submit Picture" click event & \\
+            Handles "Enter Known Info" click event & \\
+            Handles "Display Answer" event & \\
+            Handles "Display Rejection" event & \\
+		\vspace{1cm} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} General Expert AI} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} GeoKnowr Expert AI} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Identification Manager & Identification Manager \\
+            Processes image and returns an answer
+		\vspace{1cm} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Regional Expert AI} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Identification Manager & Identification Manager \\
+            Processes image and returns an answer
+		\vspace{1cm} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name:} Google Maps Landmark API} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+            Knows Identification Manager & Identification Manager \\
+            Processes image and returns an answer
+		\vspace{1cm} & \\
 		\hline
 		\end{tabular}
 	\end{table}
