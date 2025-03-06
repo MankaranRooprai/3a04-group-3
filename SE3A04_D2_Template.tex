@@ -179,12 +179,14 @@ This section should contain all of your CRC cards.
 	\item Please use the format outlined in tutorial, i.e.,
 	\begin{table}[ht]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} View Rank} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} View Rank (Boundary)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Handles click-event of "Ranking" button & \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -192,12 +194,14 @@ This section should contain all of your CRC cards.
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Make Guess} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Make Guess (Boundary)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Handles click-event of "Guess" button & \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -205,12 +209,14 @@ This section should contain all of your CRC cards.
 	
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Rank Reduction} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Rank Reduction (Boundary)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Displays the reduction in rank after guessing a location & \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -218,12 +224,14 @@ This section should contain all of your CRC cards.
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Rank Increase} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Rank Increase (Boundary)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Displays the increase in rank after guessing a location & \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -231,12 +239,18 @@ This section should contain all of your CRC cards.
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Ranking Manager} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Ranking Manager (Control)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows View Rank & View Rank \\
+		Knows Make Guess & Make Guess \\
+		Knows Rank Reduction & Rank Reduction \\
+		Knows Rank Increase & Rank Increase \\
+		Knows User Rank Info & User Rank Info \\
+		Knows Submitted Pictures & Submitted Pictures \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -244,12 +258,13 @@ This section should contain all of your CRC cards.
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} User Information} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} User Information (Entity)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Account DB & Account DB \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -257,12 +272,14 @@ This section should contain all of your CRC cards.
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} User Rank Info} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} User Rank Info (Entity)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Knows Account DB & Account DB \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -270,16 +287,21 @@ This section should contain all of your CRC cards.
 
 	\begin{table}
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Submitted Pictures} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Submitted Pictures (Entity)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
+		Knows Ranking Manager & Ranking Manager \\
+		Knows Picture Info & Picture Info \\
+		Knows Identification Manager & Identification Manager \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
+
+	% Split here
 
 	\begin{table}
 		\centering
