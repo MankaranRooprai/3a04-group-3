@@ -164,7 +164,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 
 \noindent The Identification Manager subsystem oversees the image analysis process. When a user submits an image, this subsystem sends it to the Orchestrator (controller), which in turn sends it to multiple AI models (GeoKnowr Expert AI, Ladnmark Recognizer Expert AI, and Regional Expert API) for evaluation. Each AI component contributes its results to the Blackboard, where the Orchestrator refines predictions based on confidence scores. The Blackboard Architecture allows for collaboration among AI models, ensuring accurate and efficient identification. \\
 
-\noindent The Ranking Manager subsystem tracks user rankings and reputation scores. When users submit guesses, their accuracy is assessed, and ranking adjustments are made accordingly. The Ranking Manager retrieves and updates user rankings from the User Ranking DB, ensuring that reputation data remains consistent. This subsystem follows the Repository Architecture, as ranking data needs to be stored persistently and accessed efficiently.
+\noindent The Ranking Manager subsystem tracks user rankings and reputation scores. When users submit guesses, their accuracy is assessed by calculating the euclidean distance from their guess to how far they are from the actual location. The smaller the distance, the better, and the ranking adjustments are made accordingly. The Ranking Manager retrieves and updates user rankings from the User Ranking DB, ensuring that reputation data remains consistent. This subsystem follows the Repository Architecture, as ranking data needs to be stored persistently and accessed efficiently.
 % End SubSection
 
 % End Section
