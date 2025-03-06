@@ -172,27 +172,8 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 \section{Class Responsibility Collaboration (CRC) Cards}
 \label{sec:class_responsibility_collaboration_crc_cards}
 % Begin Section
-This section should contain all of your CRC cards.
 
-\begin{itemize}
-	\item Provide a CRC Card for each identified class
-	\item Please use the format outlined in tutorial, i.e.,
-	\begin{table}[ht]
-		\centering
-		\begin{tabular}{|p{8cm}|p{8cm}|}
-		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} View Rank (Boundary)} \\
-		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		Knows Ranking Manager & Ranking Manager \\
-		Handles click-event of "Ranking" button & \\
-		\vspace{1in} & \\
-		\hline
-		\end{tabular}
-	\end{table}
-
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -207,7 +188,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 	
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -222,7 +203,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -237,7 +218,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -256,7 +237,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -270,7 +251,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -285,7 +266,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -301,9 +282,8 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	% Split here
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -319,7 +299,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -333,7 +313,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -356,7 +336,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -381,7 +361,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -396,7 +376,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -411,7 +391,7 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
@@ -426,115 +406,133 @@ This section should contain all of your CRC cards.
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Login} \\
+		\multicolumn{2}{|l|}{\textbf{Class Name:} Login (Boundary)} \\
 		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\textbf{Responsibility} & \textbf{Collaborators} \\
 		\hline
-		\vspace{1in} & \\
+		Knows Account Manager. \newline
+		Collects the user's credentials (username and password). \newline
+		Sends the credentials to the Account Manager for verification. \newline
+		Notifies the user of successful login or displays an appropriate error message if the login fails. \newline
+		Enforces basic validation, such as ensuring fields are not empty. 
+		& Account Manager \\
 		\hline
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Create Account} \\
+		\multicolumn{2}{|l|}{\textbf{Class Name:} Create Account (Boundary)} \\
 		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\textbf{Responsibility} & \textbf{Collaborators} \\
 		\hline
-		\vspace{1in} & \\
+		Knows Account Manager. \newline
+		Collects necessary information to create a new account, such as name, email, username, password, and contact details. \newline
+		Validates all required fields to ensure completeness and correct formatting. \newline
+		Submits account creation request to the Account Manager. \newline
+		Notifies the user if account creation was successful or if errors occurred (e.g., username already exists). 
+		& Account Manager \\
 		\hline
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Edit Account} \\
+		\multicolumn{2}{|l|}{\textbf{Class Name:} Edit Account (Boundary)} \\
 		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\textbf{Responsibility} & \textbf{Collaborators} \\
 		\hline
-		\vspace{1in} & \\
+		Knows Account Manager. \newline
+		Handles the modification of account information, such as updating contact details, changing passwords, and managing preferences. \newline
+		Validates changes before submitting them to the Account Manager. \newline
+		Notifies the user if the update was successful or if errors occurred. 
+		& Account Manager \\
 		\hline
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} View Account} \\
+		\multicolumn{2}{|l|}{\textbf{Class Name:} View Account (Boundary)} \\
+		\hline
+		\textbf{Responsibility} & \textbf{Collaborators} \\
+		\hline
+		Knows Account Manager. \newline
+		Displays account information to the user. \newline
+		Formats and presents user data. \newline
+		Notifies user if account data retrieval fails. 
+		& Account Manager \\
+		\hline
+		\end{tabular}
+	\end{table}
+	
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Submit Picture (Boundary)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		Knows Identificataion Manager. \newline Handles submission of the image. \newline Assesses image quality, checks for adherence to format requirements, and content guidelines. & Identification Manaager \\
 		\hline
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Submit Picture} \\
+		 \multicolumn{2}{|l|}{\textbf{Class Name:} Enter Known Info (Boundary)} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		Knows Identification Manager. \newline Collects and handles submission of known image information, such as image type, capture date \& time, source device etc. & Identification Manager \\
+		\hline 
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{8cm}|p{8cm}|}
+		\hline
+		\multicolumn{2}{|l|}{\textbf{Class Name:} Display Answer (Boundary)} \\
+		\hline
+		\textbf{Responsibility} & \textbf{Collaborators} \\
+		\hline
+		Knows Identification Manager. \newline Returns the formatted final prediction to the user & Identification Manager \\
 		\hline
 		\end{tabular}
 	\end{table}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
-		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Enter Known Info} \\
+		\begin{tabular}{|p{8cm}|p{8cm}|}
 		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\multicolumn{2}{|l|}{\textbf{Class Name:} Display Rejection (Boundary)} \\
 		\hline
-		\vspace{1in} & \\
+		\textbf{Responsibility} & \textbf{Collaborators} \\
+		\hline
+		Knows Identification Manager. \newline Handles unsuccessful image submission events. & Identification Manager \\
 		\hline
 		\end{tabular}
 	\end{table}
-
-	\begin{table}
-		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
-		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Display Answer} \\
-		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		\vspace{1in} & \\
-		\hline
-		\end{tabular}
-	\end{table}
-
-	\begin{table}
-		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
-		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:} Display Rejection} \\
-		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		\vspace{1in} & \\
-		\hline
-		\end{tabular}
-	\end{table}
-
-\end{itemize}
 % End Section
 
 \appendix
 \section{Division of Labour}
+Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
 \label{sec:division_of_labour}
 % Begin Section
 \textbf{Nesbitt, Matthew:}
@@ -602,16 +600,17 @@ This section should contain all of your CRC cards.
 
 \textbf{Lam, Robert}
 \begin{itemize}
-        \item Introduction
-        \item 1.1 Purpose
-        \item 1.2 Scope
-        \item 1.3 Definitions and Acronyms
-        \item Brainstormed experts as a group:
-		    \subitem - \textbf{GeoKnowr} AI.
+        \item Created CRC card for Login class
+		\item Created CRC card for Create Account class
+		\item Created CRC card for Edit Account class
+		\item Created CRC card for View Account class
+		\item Created CRC card for Submit Picture class
+		\item Created CRC card for Enter Known Info class
+		\item Created CRC card for Display Answer class
+		\item Created CRC card for Display Rejection class
 \end{itemize}
 \includegraphics[scale=1]{robertsignature.png}
-% Begin Section
-Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
+
 % End Section
 
 
