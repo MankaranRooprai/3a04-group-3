@@ -217,6 +217,8 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		\hline
 		Knows Ranking Manager & Ranking Manager \\
 		Displays the increase in rank after guessing a location & \\
+		Handles updating the UI to reflect the new rank & \\
+		Handles notifying the player about the rank change & \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -250,6 +252,9 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		Knows Account DB & Account DB \\
+		Knows user profile details & \\
+		Knows login/logout authentication status & \\
+		Knows user settings and preferences & \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -265,6 +270,9 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		\hline
 		Knows Ranking Manager & Ranking Manager \\
 		Knows Account DB & Account DB \\
+		Knows user's current rank and score & \\
+		Knows history of rank updates & \\
+		Knows total number of correct and incorrect guesses & \\
 		\vspace{1in} & \\
 		\hline
 		\end{tabular}
@@ -424,6 +432,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		Notifies the user of successful login or displays an appropriate error message if the login fails. \newline
 		Enforces basic validation, such as ensuring fields are not empty. 
 		& Account Manager \\
+		\vspace{1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -442,6 +451,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		Submits account creation request to the Account Manager. \newline
 		Notifies the user if account creation was successful or if errors occurred (e.g., username already exists). 
 		& Account Manager \\
+		\vspace{1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -459,6 +469,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		Validates changes before submitting them to the Account Manager. \newline
 		Notifies the user if the update was successful or if errors occurred. 
 		& Account Manager \\
+		\vspace{1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -476,6 +487,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		Formats and presents user data. \newline
 		Notifies user if account data retrieval fails. 
 		& Account Manager \\
+		\vspace{1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -490,6 +502,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		Knows Identificataion Manager. \newline Handles submission of the image. \newline Assesses image quality, checks for adherence to format requirements, and content guidelines. & Identification Manaager \\
+		\vspace{1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -503,6 +516,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		Knows Identification Manager. \newline Collects and handles submission of known image information, such as image type, capture date \& time, source device etc. & Identification Manager \\
+		\vspace{1in} & \\
 		\hline 
 		\end{tabular}
 	\end{table}
@@ -516,6 +530,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		\textbf{Responsibility} & \textbf{Collaborators} \\
 		\hline
 		Knows Identification Manager. \newline Returns the formatted final prediction to the user & Identification Manager \\
+		\vspace{1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -529,6 +544,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		\textbf{Responsibility} & \textbf{Collaborators} \\
 		\hline
 		Knows Identification Manager. \newline Handles unsuccessful image submission events. & Identification Manager \\
+		\vspace{1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
