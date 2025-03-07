@@ -427,10 +427,9 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		\textbf{Responsibility} & \textbf{Collaborators} \\
 		\hline
 		Knows Account Manager. \newline
-		Collects the user's credentials (username and password). \newline
+		Collects the user's credentials. \newline
 		Sends the credentials to the Account Manager for verification. \newline
-		Notifies the user of successful login or displays an appropriate error message if the login fails. \newline
-		Enforces basic validation, such as ensuring fields are not empty. 
+		Notifies the user of successful login or if errors occured. \newline
 		& Account Manager \\
 		\vspace{1in} & \\
 		\hline
@@ -446,10 +445,9 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		\textbf{Responsibility} & \textbf{Collaborators} \\
 		\hline
 		Knows Account Manager. \newline
-		Collects necessary information to create a new account, such as name, email, username, password, and contact details. \newline
-		Validates all required fields to ensure completeness and correct formatting. \newline
+		Collects necessary information to create a new account. \newline
 		Submits account creation request to the Account Manager. \newline
-		Notifies the user if account creation was successful or if errors occurred (e.g., username already exists). 
+		Notifies the user if account creation was successful or if errors occurred. 
 		& Account Manager \\
 		\vspace{1in} & \\
 		\hline
@@ -465,7 +463,7 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 		\textbf{Responsibility} & \textbf{Collaborators} \\
 		\hline
 		Knows Account Manager. \newline
-		Handles the modification of account information, such as updating contact details, changing passwords, and managing preferences. \newline
+		Handles the modification of account information. \newline
 		Validates changes before submitting them to the Account Manager. \newline
 		Notifies the user if the update was successful or if errors occurred. 
 		& Account Manager \\
