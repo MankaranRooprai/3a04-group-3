@@ -38,8 +38,12 @@
 {\bf Group Number:} G3 \\
 {\bf Group Members:} 
 \begin{itemize}
-	\item List all Group Member Names (as listed in Avenue)
-	\item You do not need to use student \#s or macid (keep those private).
+    \item Klisuric, Petar
+    \item Bornomala, Anindita
+    \item Nielsen, Claire
+    \item Nesbitt, Matthew
+    \item Lam, Robert 
+    \item Rooprai, Mankaran
 \end{itemize}
 
 \section*{IMPORTANT NOTES}
@@ -71,12 +75,12 @@ This high-level overview will describe the software architecture behind \textbf{
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-This document serves as a technical guideline for the internal stakeholders of \textbf{GeoLens}, including project managers, developers, investors, and team members, ensuring a clear understanding of the system's overall structure and architecture. This document provides a high-level overview of the \textbf{GeoLens} system architecture, discussing the rationale behind the design considerations of the overall systems and its various subsystems. The SRS for \textbf{GeoLens} should be reviewed before reading this document as it contains essential technical information that will provide a better understanding of this document.% End SubSection
+This document serves as a technical guideline for the internal stakeholders of GeoLens, including project managers, developers, investors, and team members, ensuring a clear understanding of the system's overall structure and architecture. This document provides a high-level overview of the GeoLens system architecture, discussing the rationale behind the design considerations of the overall systems and its various subsystems. The SRS for GeoLens should be reviewed before reading this document as it contains essential technical information that will provide a better understanding of this document.% End SubSection
 
 \subsection{System Description}
 \label{sub:system_description}
 % Begin SubSection
-\textbf{GeoLens} follows a blackboard architectural style, a design which enables the multiple specialized AI models to collaboratively analyze and refine locations from user input. The blackboard architecture style supports the adaptability of AI models and is flexible to handle uncertainties in information. The subsystems of \textbf{GeoLens} follow a repository architectural style. The repository style was selected due to its ability to securely store, structure, and update information in such a manner that keeps the information consistent and allows for the easy retrieval of information. 
+GeoLens follows a blackboard architectural style, a design which enables the multiple specialized AI models to collaboratively analyze and refine locations from user input. The blackboard architecture style supports the adaptability of AI models and is flexible to handle uncertainties in information. The subsystems of GeoLens follow a repository architectural style. The repository style was selected due to its ability to securely store, structure, and update information in such a manner that keeps the information consistent and allows for the easy retrieval of information. 
 
 % End SubSection
 
@@ -85,7 +89,7 @@ This document serves as a technical guideline for the internal stakeholders of \
 % Begin SubSection
 A breakdown of the document organization is below:
 \begin{itemize}
-  \item \textbf{Section 2}: An Analysis Class Diagram for \textbf{GeoLens}, outlining the system’s overall structure.
+  \item \textbf{Section 2}: An Analysis Class Diagram for GeoLens, outlining the system’s overall structure.
   \item \textbf{Section 3}: Discusses the architectural design of the system, elaborating on the design decisions behind the architecture and any considered design alternatives.
   \item \textbf{Section 4}: Discusses the classes of our system including their interactions and relationships through Class Responsibility Collaboration (CRC) Cards.
 \end{itemize}
@@ -104,7 +108,6 @@ A breakdown of the document organization is below:
 \section{Architectural Design}
 \label{sec:architectural_design}
 % Begin Section
-This section should provide an overview of the overall architectural design of your application. Your overall architecture should show the division of the system into subsystems with high cohesion and low coupling.
 
 \subsection{System Architecture}
 \label{sub:system_architecture}
@@ -158,7 +161,6 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 \subsection{Subsystems}
 \label{sub:subsystems}
 % Begin SubSection
- \noindent Provide a list of your subsystems, with a brief description of each. Be sure to document its purpose and relationship to other subsystems.\\
 
  \noindent The Account Manager subsystem is responsible for all user-related actions, such as login, account creation, and profile modifications. It interacts with the User DB to securely store and retrieve user information. Since user data must be structured, persistent, and easily retrievable, the Repository Architecture is the most appropriate choice for this subsystem. \\
 
@@ -532,7 +534,6 @@ GeoLens uses Data-Centered Architecture, specifically the Blackboard Architectur
 
 \appendix
 \section{Division of Labour}
-Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
 \label{sec:division_of_labour}
 % Begin Section
 \textbf{Nesbitt, Matthew:}
@@ -545,13 +546,13 @@ Include a Division of Labour sheet which indicates the contributions of each tea
 
 \textbf{Klisuric, Petar:}
 \begin{itemize}
-	\item 5.5 Maintainability and Support Requirements
-	\item 5.6 Security Requirements
-	\item 5.7 Cultural and Political Requirements
-	\item 5.8 Legal Requirements
-	\item 1.4 References
-    \item Brainstormed creative idea as group:
-		\subitem - Leaderboard within the gamified guessing system.
+	\item 1 Introduction
+	\item 1.1 Purpose
+	\item 1.2 System Description
+	\item 1.3 Overview
+        \item Helped with General Formatting
+    \item Brainstormed Ideas for Subsystems:
+		\subitem - Ranking Manager Repository Subsystem.
 \end{itemize}
 \includegraphics[scale=0.15]{petarsignature.jpg}
 
