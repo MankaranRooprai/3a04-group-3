@@ -1,0 +1,30 @@
+@startuml sequence4
+actor User
+entity App
+'entity "General AI" as AI
+entity "Region-Specific AI" as RegionAI
+'entity "Customer Support" as Support
+entity Experts
+
+User -> App: Open App
+App -> User: Prompt Login
+User -> App: Enter Login Info
+App --> App: Verify Login Info
+App --> User: Confirm Successful Login
+App -> User: Show Options (Submit a Picture, Submit a Landmark)
+User -> App: Select "Submit a Picture"
+App -> User: Prompt Upload Picture
+User -> App: Upload Picture
+App -> User: Prompt Region Info
+User -> App: Enter Region
+App -> User: Prompt Comments
+User -> App: Add Comments
+User -> App: Press "Submit Post"
+App -> Experts: Send Post Data
+Experts -> RegionAI: Send Post Data
+RegionAI --> Experts: Return Precise Location
+Experts --> App: Return Answer
+App --> User: Display Answer
+
+
+@enduml

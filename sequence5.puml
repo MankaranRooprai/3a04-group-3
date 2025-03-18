@@ -1,0 +1,26 @@
+@startuml sequence5
+actor User
+entity App
+entity "Landmark AI" as LandmarkAI
+'entity "Customer Support" as Support
+entity Experts
+
+User -> App : Open App
+App -> User : Prompt for Login
+User -> App : Enter Login Info
+App --> App : Verify Login Info
+App -> User : Display Options
+User -> App : Select 'Submit a Landmark'
+App -> User : Prompt for Image Upload
+User -> App : Upload Picture
+App -> User : Prompt for Comment
+User -> App : Add Comment
+User -> App : Submit Post
+App -> Experts : Send Post Data
+Experts -> LandmarkAI : Send Post Data
+LandmarkAI -> LandmarkAI : Process Landmark Data
+LandmarkAI --> Experts : Return Answer
+Experts --> App : Return Answer
+App --> User : Display Answer
+
+@enduml

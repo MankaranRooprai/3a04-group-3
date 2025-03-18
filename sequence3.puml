@@ -1,0 +1,26 @@
+@startuml sequence3
+actor User
+entity App
+entity "General AI" as AI
+entity "Region-Specific AI" as RegionAI
+
+User -> App : Open App
+App -> User : Display Login
+User -> App : Enter Login Info
+App --> App : Verify Login Info
+App -> User : Display Options
+User -> App : Select 'Submit a Picture'
+App -> User : Prompt Upload Picture
+User -> App : Upload Picture
+App -> App : Validate Image Format
+App --> User : Confirm Uploaded Image
+App -> User : Prompt For Comment
+User -> App : Input Comment
+App --> User : Submit Post
+App -> AI : Send Post Data
+AI -> RegionAI : Process Data
+RegionAI -> AI : Return Precise Location
+AI -> App : Return Result
+App --> User : Display Answer
+
+@enduml
