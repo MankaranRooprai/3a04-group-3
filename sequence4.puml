@@ -1,9 +1,7 @@
 @startuml sequence4
 actor User
 entity App
-'entity "General AI" as AI
 entity "Region-Specific AI" as RegionAI
-'entity "Customer Support" as Support
 entity Experts
 
 User -> App: Open App
@@ -25,6 +23,5 @@ Experts -> RegionAI: Send Post Data
 RegionAI --> Experts: Return Precise Location
 Experts --> App: Return Answer
 App --> User: Display Answer
-
 
 @enduml

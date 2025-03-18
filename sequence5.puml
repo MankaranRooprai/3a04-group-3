@@ -2,13 +2,13 @@
 actor User
 entity App
 entity "Landmark AI" as LandmarkAI
-'entity "Customer Support" as Support
 entity Experts
 
 User -> App : Open App
 App -> User : Prompt for Login
 User -> App : Enter Login Info
 App --> App : Verify Login Info
+App --> User: Confirm Successful Login
 App -> User : Display Options
 User -> App : Select 'Submit a Landmark'
 App -> User : Prompt for Image Upload
