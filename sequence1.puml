@@ -1,0 +1,21 @@
+@startuml sequence1
+actor User
+entity App
+entity "Account Manager" as System
+database "User Database" as DB
+
+User -> App: Open app
+App -> User: Prompt for login or create account
+User -> App: Select create account
+App -> User: Show registration fields
+User -> App: Enter registration details
+User -> App: Press "Register"
+App -> System: Send registration information
+System -> DB: Check for existing account
+DB --> System: No existing account found
+System -> DB: Save new account information
+DB --> System: Account saved confirmation
+System --> App: Verification successful
+App -> User: Registration successful, logged in
+
+@enduml
