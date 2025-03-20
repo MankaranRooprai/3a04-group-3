@@ -1,0 +1,15 @@
+@startuml sequence2
+actor User
+entity App
+entity "Authentication System" as AuthSystem
+database "User Database" as DB
+
+User -> App: Open app
+App -> User: Prompt for login or create account
+User -> App: Enter login information and press "Login"
+App -> AuthSystem: Verify login information
+AuthSystem -> DB: Verify login information
+DB --> AuthSystem: Verification successful
+AuthSystem --> App: Verification successful
+App -> User: Login successful, user logged in
+@enduml
